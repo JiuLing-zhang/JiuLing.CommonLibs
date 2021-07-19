@@ -52,16 +52,15 @@ namespace JiuLing.CommonLibs.Text
         /// </summary>
         /// <param name="input">要搜索匹配项的字符串。</param>
         /// <param name="pattern">要匹配的正则表达式模式。</param>
-        /// <returns>如果没有匹配到任何项，返回null,否则返回匹配到的所有项</returns>
+        /// <returns>如果没有匹配到任何项，返回一个空列表,否则返回匹配到的所有项</returns>
         public List<string> GetAll(string input, string pattern)
         {
+            var result = new List<string>();
             MatchCollection mc = Regex.Matches(input, pattern);
             if (mc.Count == 0)
             {
-                return null;
+                return result;
             }
-
-            var result = new List<string>();
             foreach (Match item in mc)
             {
                 result.Add(item.Value);

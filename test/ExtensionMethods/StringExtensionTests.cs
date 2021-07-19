@@ -1,4 +1,5 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using System;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using JiuLing.CommonLibs.ExtensionMethods;
 
 namespace JiuLing.CommonLibs.ExtensionMethodsTests
@@ -20,6 +21,24 @@ namespace JiuLing.CommonLibs.ExtensionMethodsTests
         public void IsNotEmptyTest(string input, bool result)
         {
             Assert.AreEqual(input.IsNotEmpty(), result);
+        }
+
+        [TestMethod()]
+        [DataRow("http://www.jiuling.me", true)]
+        [DataRow("www.jiuling.com", false)]
+        public void ToUriTest(string input, bool result)
+        {
+            if (result)
+            {
+                input.ToUri();
+            }
+            else
+            {
+                Assert.ThrowsException<UriFormatException>(() =>
+                {
+                    input.ToUri();
+                });
+            }
         }
     }
 }

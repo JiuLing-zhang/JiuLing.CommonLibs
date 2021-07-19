@@ -37,31 +37,39 @@ namespace JiuLing.CommonLibs.TextTests
         {
             Assert.AreEqual(_regexHelper.GetFirstOrDefault(input, pattern), result);
         }
+        private static IEnumerable<object[]> GetAllData
+        {
+            get
+            {
+                return new[]
+                {
+                    new object[]
+                    {
+                        "test1",
+                        @"test\d{2}",
+                        new List<string>()
+                    },
+                    new object[]
+                    {
+                        "test123",
+                        @"test\d{2}",
+                        new List<string>{ "test12" }
+                    },
+                    new object[]
+                    {
+                        "test123test456",
+                        @"test\d{2}",
+                        new List<string>{ "test12", "test45" }
+                    }
+                };
+            }
+        }
 
         [TestMethod()]
-        public void GetAllTest()
+        [DynamicData(nameof(GetAllData))]
+        public void GetAllTest(string input, string pattern, List<string> result)
         {
-            string input;
-            string pattern;
-            List<string> result;
-            List<string> realResult;
-
-            input = "test1";
-            pattern = @"test\d{2}";
-            result = null;
-            realResult = _regexHelper.GetAll(input, pattern);
-            Assert.IsTrue(realResult == result);
-
-            input = "test123";
-            pattern = @"test\d{2}";
-            result = new List<string>() { "test12" };
-            realResult = _regexHelper.GetAll(input, pattern);
-            Assert.IsTrue(realResult.SequenceEqual(result));
-
-            input = "test123test456";
-            pattern = @"test\d{2}";
-            result = new List<string>() { "test12", "test45" };
-            realResult = _regexHelper.GetAll(input, pattern);
+            List<string> realResult = _regexHelper.GetAll(input, pattern);
             Assert.IsTrue(realResult.SequenceEqual(result));
         }
     }

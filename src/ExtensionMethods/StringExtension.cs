@@ -1,4 +1,6 @@
-﻿namespace JiuLing.CommonLibs.ExtensionMethods
+﻿using System;
+
+namespace JiuLing.CommonLibs.ExtensionMethods
 {
     /// <summary>
     /// 字符串类型的扩展方法
@@ -7,5 +9,6 @@
     {
         public static bool IsEmpty(this string input) => string.IsNullOrEmpty(input);
         public static bool IsNotEmpty(this string input) => !string.IsNullOrEmpty(input);
+        public static Uri ToUri(this string input) => new Uri(input);
     }
 }
