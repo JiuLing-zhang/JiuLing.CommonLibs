@@ -6,7 +6,7 @@ namespace JiuLing.CommonLibs.Text
     /// <summary>
     /// 正则表达式工具类
     /// </summary>
-    public class RegexTool
+    public class RegexTools
     {
         /// <summary>
         /// 指示所指定的正则表达式在指定的输入字符串中是否找到了匹配项。
