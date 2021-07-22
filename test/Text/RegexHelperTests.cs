@@ -9,14 +9,14 @@ namespace JiuLing.CommonLibs.TextTests
     [TestClass()]
     public class RegexHelperTests
     {
-        private readonly RegexHelper _regexHelper = new();
+        private readonly RegexTool _regexTool = new();
 
         [TestMethod()]
         [DataRow("11", @"\d{3}", false)]
         [DataRow("111", @"\d{3}", true)]
         public void IsMatchTest(string input, string pattern, bool result)
         {
-            Assert.AreEqual(_regexHelper.IsMatch(input, pattern), result);
+            Assert.AreEqual(_regexTool.IsMatch(input, pattern), result);
         }
 
         [TestMethod()]
@@ -26,7 +26,7 @@ namespace JiuLing.CommonLibs.TextTests
         [DataRow("test123test456", @"test\d{2}", true, "test12")]
         public void GetFirstTest(string input, string pattern, bool success, string result)
         {
-            var (realSuccess, realResult) = _regexHelper.GetFirst(input, pattern);
+            var (realSuccess, realResult) = _regexTool.GetFirst(input, pattern);
             Assert.IsTrue(success == realSuccess && result == realResult);
         }
 
@@ -63,7 +63,7 @@ namespace JiuLing.CommonLibs.TextTests
         [DynamicData(nameof(GetAllData))]
         public void GetAllTest(string input, string pattern, List<string> result)
         {
-            List<string> realResult = _regexHelper.GetAll(input, pattern);
+            List<string> realResult = _regexTool.GetAll(input, pattern);
             Assert.IsTrue(realResult.SequenceEqual(result));
         }
 
@@ -74,7 +74,7 @@ namespace JiuLing.CommonLibs.TextTests
         [DataRow("name:jiuling;age:0;", @"name:(?<name>\w*);", true, "jiuling")]
         public void GetOneGroupInFirstMatchTest(string input, string pattern, bool success, string result)
         {
-            var (realSuccess, realResult) = _regexHelper.GetOneGroupInFirstMatch(input, pattern);
+            var (realSuccess, realResult) = _regexTool.GetOneGroupInFirstMatch(input, pattern);
             Assert.IsTrue(success == realSuccess && result == realResult);
         }
 
@@ -87,7 +87,7 @@ namespace JiuLing.CommonLibs.TextTests
             List<string> groupNames = new List<string>() { "name" };
             bool realSuccess;
             dynamic realResult;
-            (realSuccess, _) = _regexHelper.GetMultiGroupInFirstMatch(input, pattern, groupNames);
+            (realSuccess, _) = _regexTool.GetMultiGroupInFirstMatch(input, pattern, groupNames);
             Assert.IsFalse(realSuccess);
 
             //一个分组
@@ -95,14 +95,14 @@ namespace JiuLing.CommonLibs.TextTests
             pattern = @"name:(?<name>\w*);";
             groupNames = new List<string>() { "name" };
 
-            (realSuccess, realResult) = _regexHelper.GetMultiGroupInFirstMatch(input, pattern, groupNames);
+            (realSuccess, realResult) = _regexTool.GetMultiGroupInFirstMatch(input, pattern, groupNames);
             Assert.IsTrue(realSuccess && realResult.name == "jiuling");
 
             //多个分组
             input = "name:jiuling;age:0;";
             pattern = @"name:(?<name>\w*);age:(?<age>\w*);";
             groupNames = new List<string>() { "name", "age" };
-            (realSuccess, realResult) = _regexHelper.GetMultiGroupInFirstMatch(input, pattern, groupNames);
+            (realSuccess, realResult) = _regexTool.GetMultiGroupInFirstMatch(input, pattern, groupNames);
             Assert.IsTrue(realSuccess && realResult.name == "jiuling" && realResult.age == "0");
         }
     }

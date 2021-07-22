@@ -4,6 +4,11 @@ using System.Linq;
 
 namespace JiuLing.CommonLibs.Collections
 {
+    /// <summary>
+    /// Dictionary对象对比工具
+    /// </summary>
+    /// <typeparam name="TKey">Dictionary的键类型</typeparam>
+    /// <typeparam name="TValue">Dictionary的值类型</typeparam>
     public class DictionaryComparer<TKey, TValue> : IEqualityComparer<Dictionary<TKey, TValue>>
     {
         private readonly IEqualityComparer<TValue> _valueComparer;

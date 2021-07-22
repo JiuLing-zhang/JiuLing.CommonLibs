@@ -1,13 +1,12 @@
 ﻿using System.Collections.Generic;
 using System.Text.RegularExpressions;
-using JiuLing.CommonLibs.ExtensionMethods;
 
 namespace JiuLing.CommonLibs.Text
 {
     /// <summary>
     /// 正则表达式工具类
     /// </summary>
-    public class RegexHelper
+    public class RegexTool
     {
         /// <summary>
         /// 指示所指定的正则表达式在指定的输入字符串中是否找到了匹配项。
