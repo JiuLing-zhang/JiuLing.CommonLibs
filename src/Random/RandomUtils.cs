@@ -3,7 +3,7 @@
     /// <summary>
     /// 随机数帮助类
     /// </summary>
-    public class RandomHelper
+    public class RandomUtils
     {
         private static readonly System.Random MyRandom = new();
 

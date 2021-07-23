@@ -10,7 +10,7 @@ namespace JiuLing.CommonLibs.Net.Tests
 {
     [TestClass()]
     [Ignore("网络请求工具类，不测试")]
-    public class HttpClientToolsTests
+    public class HttpClientHelperTests
     {
         [TestMethod()]
         public void HttpClientToolsTest()

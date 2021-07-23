@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 namespace JiuLing.CommonLibs.Threading.Tests
 {
     [TestClass()]
-    public class ThreadHelperTests
+    public class ThreadUtilsTests
     {
         [TestMethod()]
         [DataRow(1, 2)]
@@ -19,7 +19,7 @@ namespace JiuLing.CommonLibs.Threading.Tests
         {
             var stopwatch = new Stopwatch();
             stopwatch.Start();
-            ThreadHelper.SleepRandomSecond(minValue, maxValue);
+            ThreadUtils.SleepRandomSecond(minValue, maxValue);
             stopwatch.Stop();
             var sleepMilliseconds = stopwatch.ElapsedMilliseconds / 1000;
             Assert.IsTrue(sleepMilliseconds >= minValue && sleepMilliseconds <= maxValue);
@@ -32,7 +32,7 @@ namespace JiuLing.CommonLibs.Threading.Tests
         {
             var stopwatch = new Stopwatch();
             stopwatch.Start();
-            ThreadHelper.SleepRandomMillisecond(minValue, maxValue);
+            ThreadUtils.SleepRandomMillisecond(minValue, maxValue);
             stopwatch.Stop();
             var sleepMilliseconds = stopwatch.ElapsedMilliseconds;
             Assert.IsTrue(sleepMilliseconds >= minValue && sleepMilliseconds <= maxValue);

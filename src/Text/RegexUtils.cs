@@ -6,7 +6,7 @@ namespace JiuLing.CommonLibs.Text
     /// <summary>
     /// 正则表达式工具类
     /// </summary>
-    public class RegexTools
+    public class RegexUtils
     {
         /// <summary>
         /// 指示所指定的正则表达式在指定的输入字符串中是否找到了匹配项。
@@ -14,7 +14,7 @@ namespace JiuLing.CommonLibs.Text
         /// <param name="input">要搜索匹配项的字符串。</param>
         /// <param name="pattern">要匹配的正则表达式模式。</param>
         /// <returns>如果正则表达式找到匹配项，则为 true；否则为 false。</returns>
-        public bool IsMatch(string input, string pattern)
+        public static bool IsMatch(string input, string pattern)
         {
             return Regex.IsMatch(input, pattern);
         }
@@ -25,7 +25,7 @@ namespace JiuLing.CommonLibs.Text
         /// <param name="input">要搜索匹配项的字符串。</param>
         /// <param name="pattern">要匹配的正则表达式模式。</param>
         /// <returns>如果没有匹配到任何项，success=false,否则result返回第一个匹配项</returns>
-        public (bool success, string result) GetFirst(string input, string pattern)
+        public static (bool success, string result) GetFirst(string input, string pattern)
         {
             MatchCollection mc = Regex.Matches(input, pattern);
             if (mc.Count == 0)
@@ -41,7 +41,7 @@ namespace JiuLing.CommonLibs.Text
         /// <param name="input">要搜索匹配项的字符串。</param>
         /// <param name="pattern">要匹配的正则表达式模式。</param>
         /// <returns>如果没有匹配到任何项，返回一个空列表,否则返回匹配到的所有项</returns>
-        public List<string> GetAll(string input, string pattern)
+        public static List<string> GetAll(string input, string pattern)
         {
             var result = new List<string>();
             MatchCollection mc = Regex.Matches(input, pattern);
@@ -62,7 +62,7 @@ namespace JiuLing.CommonLibs.Text
         /// <param name="input">要搜索匹配项的字符串。</param>
         /// <param name="pattern">要匹配的正则表达式模式。</param>
         /// <returns>如果没有匹配到任何项，success=false,否则result返回匹配到的唯一分组</returns>
-        public (bool success, string result) GetOneGroupInFirstMatch(string input, string pattern)
+        public static (bool success, string result) GetOneGroupInFirstMatch(string input, string pattern)
         {
             MatchCollection mc = Regex.Matches(input, pattern);
             if (mc.Count == 0)
@@ -85,7 +85,7 @@ namespace JiuLing.CommonLibs.Text
         /// <param name="pattern">要匹配的正则表达式模式。</param>
         /// <param name="groupNames">要查找的分组列表。</param>
         /// <returns>如果没有匹配到任何项，success=false,否则result返回一个dynamic对象，其属性为传入的分组名</returns>
-        public (bool success, dynamic result) GetMultiGroupInFirstMatch(string input, string pattern, List<string> groupNames)
+        public static (bool success, dynamic result) GetMultiGroupInFirstMatch(string input, string pattern, List<string> groupNames)
         {
             if (groupNames == null || groupNames.Count == 0)
             {

@@ -5,7 +5,7 @@ namespace JiuLing.CommonLibs.Threading
     /// <summary>
     /// 线程相关的帮助类
     /// </summary>
-    public class ThreadHelper
+    public class ThreadUtils
     {
         private static readonly System.Random MyRandom = new System.Random();
 

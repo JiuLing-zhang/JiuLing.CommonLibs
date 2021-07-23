@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace JiuLing.CommonLibs.Random.Tests
 {
     [TestClass()]
-    public class RandomHelperTests
+    public class RandomUtilsTests
     {
         [TestMethod()]
         [DataRow(0)]
@@ -17,7 +17,7 @@ namespace JiuLing.CommonLibs.Random.Tests
         [DataRow(5)]
         public void GetOneTest(int randomLength)
         {
-            Assert.IsTrue(RandomHelper.GetOne(randomLength).Length == randomLength);
+            Assert.IsTrue(RandomUtils.GetOne(randomLength).Length == randomLength);
         }
     }
 }

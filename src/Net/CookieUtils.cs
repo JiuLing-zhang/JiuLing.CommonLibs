@@ -8,7 +8,7 @@ namespace JiuLing.CommonLibs.Net
     /// <summary>
     /// Cookie帮助类
     /// </summary>
-    public class CookieTools
+    public class CookieUtils
     {
         /// <summary>
         /// 将CookieContainer转换为指定格式的字符串形式

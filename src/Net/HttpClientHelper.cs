@@ -7,10 +7,10 @@ namespace JiuLing.CommonLibs.Net
     /// <summary>
     /// 网络请求工具
     /// </summary>
-    public class HttpClientTools
+    public class HttpClientHelper
     {
         private static HttpClient _httpClient;
-        public HttpClientTools()
+        public HttpClientHelper()
         {
             _httpClient = new HttpClient();
         }

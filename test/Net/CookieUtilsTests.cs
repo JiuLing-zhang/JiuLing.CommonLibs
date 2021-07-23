@@ -10,7 +10,7 @@ namespace JiuLing.CommonLibs.Net.Tests
 {
     [TestClass()]
     [Ignore("牵扯Cookie类的操作，不测试")]
-    public class CookieToolsTests
+    public class CookieUtilsTests
     {
         [TestMethod()]
         public void CookieContainerToStringTest()
