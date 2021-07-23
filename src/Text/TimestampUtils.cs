@@ -8,24 +8,44 @@ namespace JiuLing.CommonLibs.Text
     public class TimestampUtils
     {
         /// <summary>
+        /// 获取一个10位的时间戳
+        /// </summary>
+        /// <returns></returns>
+        public static Int64 GetLen10()
+        {
+            DateTimeOffset dto = new DateTimeOffset(DateTime.Now);
+            return dto.ToUnixTimeSeconds();
+        }
+
+        /// <summary>
+        /// 获取一个13位的时间戳
+        /// </summary>
+        /// <returns></returns>
+        public static Int64 GetLen13()
+        {
+            DateTimeOffset dto = new DateTimeOffset(DateTime.Now);
+            return dto.ToUnixTimeMilliseconds();
+        }
+
+        /// <summary>
         /// 生成一个10位的时间戳
         /// </summary>
-        /// <param name="time">要转换的时间，time为null时取当前时间</param>
+        /// <param name="time">要转换的时间</param>
         /// <returns></returns>
-        public static Int64 ConvertToLen10(DateTime? time = null)
+        public static Int64 ConvertToLen10(DateTime time)
         {
-            DateTimeOffset dto = new DateTimeOffset(time ?? DateTime.Now);
+            DateTimeOffset dto = new DateTimeOffset(time);
             return dto.ToUnixTimeSeconds();
         }
 
         /// <summary>
         /// 生成一个13位的时间戳
         /// </summary>
-        /// <param name="time">要转换的时间，time为null时取当前时间</param>
+        /// <param name="time">要转换的时间</param>
         /// <returns></returns>
-        public static Int64 ConvertToLen13(DateTime? time = null)
+        public static Int64 ConvertToLen13(DateTime time)
         {
-            DateTimeOffset dto = new DateTimeOffset(time ?? DateTime.Now);
+            DateTimeOffset dto = new DateTimeOffset(time);
             return dto.ToUnixTimeMilliseconds();
         }
 

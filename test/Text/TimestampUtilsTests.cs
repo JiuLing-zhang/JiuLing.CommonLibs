@@ -11,6 +11,19 @@ namespace JiuLing.CommonLibs.Text.Tests
     [TestClass()]
     public class TimestampUtilsTests
     {
+
+        [TestMethod()]
+        public void GetLen10Test()
+        {
+            Assert.IsTrue(TimestampUtils.GetLen10().ToString().Length == 10);
+        }
+
+        [TestMethod()]
+        public void GetLen13Test()
+        {
+            Assert.IsTrue(TimestampUtils.GetLen13().ToString().Length == 13);
+        }
+
         [TestMethod()]
         [DataRow("2021-07-22 21:48:41", 1626961721)]
         public void ConvertToLen10Test(string timeString, Int64 result)
@@ -44,5 +57,6 @@ namespace JiuLing.CommonLibs.Text.Tests
                 TimestampUtils.ConvertToDateTime(timeStamp);
             });
         }
+
     }
 }
