@@ -26,6 +26,24 @@
 ### `ExtensionMethods`命名空间  
 该命名空间下是一些通用的扩展方法
 
+* `EnumExtension`类：枚举类型的扩展方法
+
+    ```C#
+    public enum MyEnum
+    {
+        [Description("一")]
+        One,
+        [Description("二")]
+        Two,
+        Three
+    }
+
+    //获取枚举的描述信息，下面的例子将返回“一”
+    MyEnum.One.GetDescription();
+    //如果枚举字段没有设置Description特性，将返回自身的ToString()形式，下面的例子将返回“Three”
+    MyEnum.Three.GetDescription();
+    ```
+
 * `StringExtension`类：字符串类型的扩展方法
 
     ```C#
