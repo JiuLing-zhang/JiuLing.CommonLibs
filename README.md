@@ -34,6 +34,19 @@
     "https://jiuling.me".ToUri();  //将字符串转为Uri对象
     ```
 
+### `Log`命名空间  
+该命名空间下是一些通用的日志帮助类
+
+* `ILogger`接口：负责简单的日志的写入
+
+    ```C#
+    ILogger logger = LogManager.GetLogger();
+    // logger.SetLogDirectory("C:\\")      //设置日志文件的路径，默认为“程序集路径\log”
+    //     .SetFileNameFormat("yyyyMMdd")  //设置日志文件名的格式，默认为“yyyy-MM-dd”
+    //     .SetFileExpandedName(".txt");   //设置日志文件的扩展名，默认为“.log”
+    logger.Write("test");
+    ```
+
 ### `Model`命名空间  
 该命名空间下是一些通用的数据模型
 

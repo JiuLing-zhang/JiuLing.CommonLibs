@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace JiuLing.CommonLibs.CollectionsTests
+namespace JiuLing.CommonLibs.Collections.Tests
 {
     [TestClass()]
     public class DictionaryComparerTests

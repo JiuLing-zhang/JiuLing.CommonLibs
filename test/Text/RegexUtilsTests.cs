@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Linq;
 
-namespace JiuLing.CommonLibs.TextTests
+namespace JiuLing.CommonLibs.Text.Tests
 {
 
     [TestClass()]

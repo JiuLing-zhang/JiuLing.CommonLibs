@@ -2,7 +2,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using JiuLing.CommonLibs.ExtensionMethods;
 
-namespace JiuLing.CommonLibs.ExtensionMethodsTests
+namespace JiuLing.CommonLibs.ExtensionMethods.Tests
 {
     [TestClass()]
     public class StringExtensionTests
