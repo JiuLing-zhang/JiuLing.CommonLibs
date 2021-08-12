@@ -1,5 +1,17 @@
 <Project Sdk="Microsoft.NET.Sdk">
 	<PropertyGroup>
 		<TargetFramework>net5.0</TargetFramework>
+		<Description>一个基于.NET 5的通用类库</Description>
+		<Authors>九零</Authors>
+		<PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+		<PackageProjectUrl>https://github.com/JiuLing-zhang/JiuLing.CommonLibs</PackageProjectUrl>
+		<PackageIcon>nuget_icon.png</PackageIcon>
+		<PackageIconUrl />
 	</PropertyGroup>
+	<ItemGroup>
+	  <None Include="..\nuget_icon.png">
+	    <Pack>True</Pack>
+	    <PackagePath></PackagePath>
+	  </None>
+	</ItemGroup>
 </Project>
