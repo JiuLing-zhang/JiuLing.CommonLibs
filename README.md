@@ -2,7 +2,7 @@
 ![](https://img.shields.io/badge/test-passing-brightgreen)
 ![](https://img.shields.io/badge/license-MIT-green)
 ![](https://img.shields.io/badge/version-1.0.0.0-blue)
-[![](https://img.shields.io/badge/nuget-1.0.0.0-blue)](https://github.com/JiuLing-zhang/JiuLing.CommonLibs/releases)
+[![](https://img.shields.io/badge/nuget-1.0.0.0-blue)](https://www.nuget.org/packages/JiuLing.CommonLibs/)
 [![](https://img.shields.io/badge/download-releases-blue)](https://github.com/JiuLing-zhang/JiuLing.CommonLibs/releases)  
 
 # 一个基于`.NET 5`的通用类库
