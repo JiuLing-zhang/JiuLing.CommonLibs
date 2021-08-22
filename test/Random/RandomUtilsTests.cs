@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using JiuLing.CommonLibs.ExtensionMethods;
 
 namespace JiuLing.CommonLibs.Random.Tests
 {
@@ -17,7 +18,19 @@ namespace JiuLing.CommonLibs.Random.Tests
         [DataRow(5)]
         public void GetOneTest(int randomLength)
         {
-            Assert.IsTrue(RandomUtils.GetOne(randomLength).Length == randomLength);
+            Assert.IsTrue(RandomUtils.GetOneByLength(randomLength).Length == randomLength);
+        }
+
+        [TestMethod()]
+        public void GetOneFromListTest()
+        {
+            var list = new List<string>();
+            string result = RandomUtils.GetOneFromList<string>(list);
+            Assert.IsTrue(result.IsEmpty());
+            list.Add("a");
+            list.Add("b");
+            result = RandomUtils.GetOneFromList<string>(list);
+            Assert.IsTrue(list.Contains(result));
         }
     }
 }

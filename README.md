@@ -1,9 +1,8 @@
 ![](https://img.shields.io/badge/build-passing-brightgreen)
 ![](https://img.shields.io/badge/test-passing-brightgreen)
-![](https://img.shields.io/badge/license-MIT-green)
-![](https://img.shields.io/badge/version-1.0.0.0-blue)
-[![](https://img.shields.io/badge/nuget-1.0.0.0-blue)](https://www.nuget.org/packages/JiuLing.CommonLibs/)
-[![](https://img.shields.io/badge/download-releases-blue)](https://github.com/JiuLing-zhang/JiuLing.CommonLibs/releases)  
+![](https://img.shields.io/github/license/JiuLing-zhang/JiuLing.CommonLibs)
+![](https://img.shields.io/github/v/release/JiuLing-zhang/JiuLing.CommonLibs)
+[![](https://img.shields.io/github/v/release/JiuLing-zhang/JiuLing.CommonLibs)](https://www.nuget.org/packages/JiuLing.CommonLibs/)  
 
 # 一个基于`.NET 5`的通用类库
 一个`.NET 5`下整理的通用类库。  
@@ -120,8 +119,15 @@
 * `RandomUtils`类：随机数帮助类
 
     ```C#
-    RandomUtils.GetOne();    //返回一个长度为10的随机数
-    RandomUtils.GetOne(20);  //返回一个长度为20的随机数
+    RandomUtils.GetOneByLength();    //返回一个长度为10的随机数
+    RandomUtils.GetOneByLength(20);  //返回一个长度为20的随机数
+
+    //方法定义  T GetOneFromList<T>(IList<T> input)
+    //随机返回list中的一个元素
+    var list = new List<string>();
+    list.Add("a");
+    list.Add("b");
+    RandomUtils.GetOneFromList<string>(list);
     ```
 
 ### `Text`命名空间  
