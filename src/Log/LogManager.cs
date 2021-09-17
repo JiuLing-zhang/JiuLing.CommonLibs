@@ -3,7 +3,7 @@
     public class LogManager
     {
         private static ILogger _logger;
-        private static readonly object LockLogger = new();
+        private static readonly object LockLogger = new object();
         public static ILogger GetLogger()
         {
             if (_logger != null)
@@ -12,10 +12,12 @@
             }
             lock (LockLogger)
             {
-                _logger ??= new TextLogger();
+                if (_logger == null)
+                {
+                    _logger = new TextLogger();
+                }
+                return _logger;
             }
-
-            return _logger;
         }
     }
 }

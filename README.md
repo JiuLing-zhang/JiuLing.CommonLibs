@@ -4,8 +4,8 @@
 ![](https://img.shields.io/github/v/release/JiuLing-zhang/JiuLing.CommonLibs)
 [![](https://img.shields.io/github/v/release/JiuLing-zhang/JiuLing.CommonLibs)](https://www.nuget.org/packages/JiuLing.CommonLibs/)  
 
-# 一个基于`.NET 5`的通用类库
-一个`.NET 5`下整理的通用类库。  
+# 一个基于`.NET Standard 2.0`的通用类库
+一个`.NET Standard 2.0`下整理的通用类库。  
 
 ## :one: 项目初衷
 新建项目后，经常发现连个`string.IsEmpty()`都没有、想要个`Json`的通用返回值吧，也没有:disappointed_relieved::disappointed_relieved:，当然，还有等等等等等等等等。。。所以我决定整理并集成一下自己平时用的比较多的一些工具类，然后发布到`NuGet`，以后走哪用哪啊有木有~~  

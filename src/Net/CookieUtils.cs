@@ -21,7 +21,7 @@ namespace JiuLing.CommonLibs.Net
             var cookieList = CookieContainerToList(cookieContainer);
             foreach (Cookie cookie in cookieList)
             {
-                result = $"{result}{cookie.Name}^{cookie.Value}^{cookie.Domain}^{cookie.Path}^{cookie.Expires}{Environment.NewLine}";
+                result = $"{result}{cookie.Name}^{cookie.Value}^{cookie.Domain}^{cookie.Path}^{cookie.Expires}\n";
             }
             return result;
         }
@@ -60,14 +60,14 @@ namespace JiuLing.CommonLibs.Net
         public static CookieContainer StringToCookieContainer(string cookies)
         {
             var cc = new CookieContainer();
-            string[] cookieRows = cookies.Split(Environment.NewLine);
+            string[] cookieRows = cookies.Split('\n');
             foreach (string cookieRow in cookieRows)
             {
                 if (string.IsNullOrEmpty(cookieRow))
                 {
                     continue;
                 }
-                string[] cookieArray = cookieRow.Split("^");
+                string[] cookieArray = cookieRow.Split('^');
                 if (cookieArray.Length != 5)
                 {
                     throw new FormatException("cookie格式错误");

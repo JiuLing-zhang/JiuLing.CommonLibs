@@ -7,7 +7,7 @@ namespace JiuLing.CommonLibs.Random
     /// </summary>
     public class RandomUtils
     {
-        private static readonly System.Random MyRandom = new();
+        private static readonly System.Random MyRandom = new System.Random();
 
         /// <summary>
         /// 获取一个指定长度的随机数

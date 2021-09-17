@@ -57,9 +57,11 @@ namespace JiuLing.CommonLibs.Log
             string fileName = $"{now.ToString(_logNameDatetimeFormat)}{_logExpandedName}";
             string path = Path.Combine(_logDirectory, fileName);
 
-            using StreamWriter sw = new StreamWriter(path, true, System.Text.Encoding.UTF8);
-            sw.Write($"{now:yyyy-MM-dd HH:mm:ss.fff} {message}{Environment.NewLine}");
-            sw.Flush();
+            using (StreamWriter sw = new StreamWriter(path, true, System.Text.Encoding.UTF8))
+            {
+                sw.Write($"{now:yyyy-MM-dd HH:mm:ss.fff} {message}{Environment.NewLine}");
+                sw.Flush();
+            }
         }
     }
 }
