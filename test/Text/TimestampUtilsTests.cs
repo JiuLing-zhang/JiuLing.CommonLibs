@@ -25,37 +25,27 @@ namespace JiuLing.CommonLibs.Text.Tests
         }
 
         [TestMethod()]
-        [DataRow("2021-07-22 21:48:41", 1626961721)]
-        public void ConvertToLen10Test(string timeString, Int64 result)
+        public void ConvertToLen10Test()
         {
-            DateTime time = Convert.ToDateTime(timeString);
-            Assert.IsTrue(TimestampUtils.ConvertToLen10(time) == result);
+            DateTime time = Convert.ToDateTime(DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
+            Int64 timestamp = TimestampUtils.ConvertToLen10(time);
+            Assert.IsTrue(DateTime.Compare(TimestampUtils.ConvertToDateTime(timestamp), time) == 0);
         }
 
         [TestMethod()]
-        [DataRow("2021-07-22 21:48:41", 1626961721000)]
-        public void ConvertToLen13Test(string timeString, Int64 result)
+        public void ConvertToLen13Test()
         {
-            DateTime time = Convert.ToDateTime(timeString);
-            Assert.IsTrue(TimestampUtils.ConvertToLen13(time) == result);
+            DateTime time = Convert.ToDateTime(DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff"));
+            Int64 timestamp = TimestampUtils.ConvertToLen13(time);
+            Assert.IsTrue(DateTime.Compare(TimestampUtils.ConvertToDateTime(timestamp), time) == 0);
         }
 
         [TestMethod()]
         public void ConvertToDateTimeTest()
         {
-            Int64 timeStamp = 1626961721000;
-            DateTime time = Convert.ToDateTime("2021-07-22 21:48:41");
-            Assert.IsTrue(DateTime.Compare(TimestampUtils.ConvertToDateTime(timeStamp), time) == 0);
-
-            timeStamp = 1626961721;
-            time = Convert.ToDateTime("2021-07-22 21:48:41");
-            Assert.IsTrue(DateTime.Compare(TimestampUtils.ConvertToDateTime(timeStamp), time) == 0);
-
-            timeStamp = 16269617210;
-            Assert.ThrowsException<ArgumentException>(() =>
-            {
-                TimestampUtils.ConvertToDateTime(timeStamp);
-            });
+            DateTime time = Convert.ToDateTime(DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
+            Int64 timestamp = TimestampUtils.ConvertToLen10(time);
+            Assert.IsTrue(DateTime.Compare(TimestampUtils.ConvertToDateTime(timestamp), time) == 0);
         }
 
     }
