@@ -1,5 +1,5 @@
-![](https://img.shields.io/github/license/JiuLing-zhang/JiuLing.CommonLibs)  
-![](https://img.shields.io/github/workflow/status/JiuLing-zhang/JiuLing.CommonLibs/.NET)  
+![](https://img.shields.io/github/license/JiuLing-zhang/JiuLing.CommonLibs)
+![](https://img.shields.io/github/workflow/status/JiuLing-zhang/JiuLing.CommonLibs/.NET)
 [![](https://img.shields.io/nuget/v/JiuLing.CommonLibs)](https://www.nuget.org/packages/JiuLing.CommonLibs/)  
 
 # 一个基于`.NET Standard 2.0`的通用类库
