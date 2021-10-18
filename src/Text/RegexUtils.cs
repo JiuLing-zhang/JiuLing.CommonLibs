@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using System.Text.RegularExpressions;
 
 namespace JiuLing.CommonLibs.Text
@@ -17,6 +18,18 @@ namespace JiuLing.CommonLibs.Text
         public static bool IsMatch(string input, string pattern)
         {
             return Regex.IsMatch(input, pattern);
+        }
+
+        /// <summary>
+        /// 在指定的输入字符串内，使用指定的替换字符串替换与指定正则表达式匹配的所有字符串。
+        /// </summary>
+        /// <param name="input">要搜索匹配项的字符串。</param>
+        /// <param name="pattern">要匹配的正则表达式模式。</param>
+        /// <param name="replacement">替换字符串。</param>
+        /// <returns>一个与输入字符串基本相同的新字符串，唯一的差别在于，其中的每个匹配字符串已被替换字符串代替。 如果 pattern 与当前实例不匹配，则此方法返回未更改的当前实例。</returns>
+        public static string Replace(string input, string pattern, string replacement)
+        {
+            return Regex.Replace(input, pattern, replacement);
         }
 
         /// <summary>
@@ -83,32 +96,35 @@ namespace JiuLing.CommonLibs.Text
         /// </summary>
         /// <param name="input">要搜索匹配项的字符串。</param>
         /// <param name="pattern">要匹配的正则表达式模式。</param>
-        /// <param name="groupNames">要查找的分组列表。</param>
-        /// <returns>如果没有匹配到任何项，success=false,否则result返回一个dynamic对象，其属性为传入的分组名</returns>
-        public static (bool success, dynamic result) GetMultiGroupInFirstMatch(string input, string pattern, List<string> groupNames)
+        /// <returns>如果没有匹配到任何项，success=false,否则result返回一个IDictionary对象，其Key值为Group的名称</returns>
+        public static (bool success, IDictionary<string, string> result) GetMultiGroupInFirstMatch(string input, string pattern)
         {
-            if (groupNames == null || groupNames.Count == 0)
+            var checkGroupPattern = @"\?<[a-zA-Z]*>";
+            var groups = GetAll(pattern, checkGroupPattern);
+            if (groups.Count == 0)
             {
-                return (false, string.Empty);
+                return (false, null);
             }
+
             MatchCollection mc = Regex.Matches(input, pattern);
             if (mc.Count == 0)
             {
-                return (false, string.Empty);
+                return (false, null);
             }
 
             //匹配到的分组数量与需要查找的分组数量不一致
-            if (mc[0].Groups.Count != groupNames.Count + 1)
+            if (mc[0].Groups.Count != groups.Count + 1)
             {
-                return (false, string.Empty);
+                return (false, null);
             }
 
-            dynamic obj = new System.Dynamic.ExpandoObject();
-            foreach (string groupName in groupNames)
+            IDictionary<string, string> result = new Dictionary<string, string>();
+            foreach (string groupName in groups)
             {
-                ((IDictionary<string, object>)obj).Add(groupName, mc[0].Groups[groupName].Value);
+                string groupKey = Replace(groupName, "[^a-zA-Z]", "");
+                result.Add(groupKey, mc[0].Groups[groupKey].Value);
             }
-            return (true, obj);
+            return (true, result);
         }
     }
 }

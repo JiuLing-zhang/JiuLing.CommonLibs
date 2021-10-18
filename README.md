@@ -137,6 +137,9 @@
     //文本是否与正则表达式匹配
     RegexUtils.IsMatch(111,@"\d{3}");
 
+    //根据正则表达式替换；该示例返回：<xxx>
+    RegexUtils.Replace("<test>",@"test","xxx");
+
     //返回正则表达式的第一个匹配项；返回test12
     RegexUtils.GetFirst("test123test456", @"test\d{2}");
 
@@ -146,8 +149,9 @@
     //按照正则表达式分组名称返回第一个匹配项；a="jiuling"
     string a=GetOneGroupInFirstMatchTest("name:jiuling;age:0;",@"name:(?<name>\w*);");
 
-    //按照正则表达式分组名称返回所有匹配项；obj.name="jiuling"  obj.age="0" 
-    dynamic obj=RegexUtils.GetMultiGroupInFirstMatch("name:jiuling;age:0;",@"name:(?<name>\w*);age:(?<age>\w*);");
+    //按照正则表达式分组名称返回所有匹配项；如果没有匹配到任何项，success=false,否则result返回一个IDictionary对象，其Key值为Group的名称 
+    (bool success, IDictionary<string, string> result)=RegexUtils.GetMultiGroupInFirstMatch("name:jiuling;age:0;",@"name:(?<name>\w*);age:(?<age>\w*);");
+    //返回值 success=true,result["name"]="jiuling",result["age"]="0"
     ```
 
 * `TimestampUtils`类：时间戳相关的类

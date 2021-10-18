@@ -5,9 +5,8 @@ using System.Linq;
 
 namespace JiuLing.CommonLibs.Text.Tests
 {
-
     [TestClass()]
-    public class RegexToolsTests
+    public class RegexUtilsTests
     {
         [TestMethod()]
         [DataRow("11", @"\d{3}", false)]
@@ -15,6 +14,14 @@ namespace JiuLing.CommonLibs.Text.Tests
         public void IsMatchTest(string input, string pattern, bool result)
         {
             Assert.AreEqual(RegexUtils.IsMatch(input, pattern), result);
+        }
+
+        [TestMethod()]
+        [DataRow("?<name>", @"[^a-zA-Z]", "", "name")]
+        [DataRow("<test>", @"test", "xxx", "<xxx>")]
+        public void ReplaceTest(string input, string pattern, string replacement, string result)
+        {
+            Assert.IsTrue(RegexUtils.Replace(input, pattern, replacement) == result);
         }
 
         [TestMethod()]
@@ -84,8 +91,7 @@ namespace JiuLing.CommonLibs.Text.Tests
             string pattern = @"name:\w*;";
             List<string> groupNames = new List<string>() { "name" };
             bool realSuccess;
-            dynamic realResult;
-            (realSuccess, _) = RegexUtils.GetMultiGroupInFirstMatch(input, pattern, groupNames);
+            (realSuccess, _) = RegexUtils.GetMultiGroupInFirstMatch(input, pattern);
             Assert.IsFalse(realSuccess);
 
             //一个分组
@@ -93,15 +99,18 @@ namespace JiuLing.CommonLibs.Text.Tests
             pattern = @"name:(?<name>\w*);";
             groupNames = new List<string>() { "name" };
 
-            (realSuccess, realResult) = RegexUtils.GetMultiGroupInFirstMatch(input, pattern, groupNames);
-            Assert.IsTrue(realSuccess && realResult.name == "jiuling");
+            IDictionary<string, string> realResult;
+            (realSuccess, realResult) = RegexUtils.GetMultiGroupInFirstMatch(input, pattern);
+            Assert.IsTrue(realSuccess && realResult["name"] == "jiuling");
 
             //多个分组
             input = "name:jiuling;age:0;";
             pattern = @"name:(?<name>\w*);age:(?<age>\w*);";
             groupNames = new List<string>() { "name", "age" };
-            (realSuccess, realResult) = RegexUtils.GetMultiGroupInFirstMatch(input, pattern, groupNames);
-            Assert.IsTrue(realSuccess && realResult.name == "jiuling" && realResult.age == "0");
+            (realSuccess, realResult) = RegexUtils.GetMultiGroupInFirstMatch(input, pattern);
+            Assert.IsTrue(realSuccess && realResult["name"] == "jiuling" && realResult["age"] == "0");
         }
+
+
     }
 }
