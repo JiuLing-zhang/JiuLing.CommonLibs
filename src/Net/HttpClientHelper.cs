@@ -49,6 +49,19 @@ namespace JiuLing.CommonLibs.Net
         }
 
         /// <summary>
+        /// 发送一个字符串形式的Post请求
+        /// </summary>
+        /// <param name="url">要请求的URL</param>
+        /// <param name="data">字符串或json串</param>
+        /// <returns>返回服务器请求得到的字符串</returns>
+        public async Task<string> PostStringReadString(string url, string data)
+        {
+            var sc = new StringContent(data);
+            var response = await _httpClient.PostAsync(url, sc);
+            return await response.Content.ReadAsStringAsync();
+        }
+
+        /// <summary>
         /// 发送一个表单形式的Post请求
         /// </summary>
         /// <param name="url">要请求的URL</param>

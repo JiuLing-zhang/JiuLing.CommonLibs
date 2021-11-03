@@ -107,6 +107,9 @@
     //异步发送一个表单形式的Post请求，返回一个字符串
     public async Task<string> PostFormReadString(string url, IEnumerable<KeyValuePair<string, string>> data);
 
+    //异步发送一个字符串形式的Post请求，返回一个字符串
+    public async Task<string> PostStringReadString(string url, string data);
+
     //异步发送一个表单形式的Post请求，返回一个字节数组
     public async Task<byte[]> PostFormReadByteArray(string url, IEnumerable<KeyValuePair<string, string>> data)
     ```
