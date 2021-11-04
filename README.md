@@ -70,8 +70,16 @@
 ### `Model`命名空间  
 该命名空间下是一些通用的数据模型
 
-* `JsonResult`类：一个通用的`Json`返回值模型
+* `JsonResult`类：通用的`Json`返回值模型
 
+    ```C#
+    public class JsonResult
+    {
+        public int Code { get; set; }
+        public string Message { get; set; }
+    }
+    ```
+	
     ```C#
     public class JsonResult<T>
     {
