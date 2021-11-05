@@ -118,6 +118,9 @@
     //异步发送一个字符串形式的Post请求，返回一个字符串
     public async Task<string> PostStringReadString(string url, string data);
 
+    //异步发送一个Json形式的Post请求（使用UTF8编码），返回一个字符串
+    public async Task<string> PostJsonReadString(string url, string data);
+
     //异步发送一个表单形式的Post请求，返回一个字节数组
     public async Task<byte[]> PostFormReadByteArray(string url, IEnumerable<KeyValuePair<string, string>> data)
     ```
@@ -195,6 +198,30 @@
 
     //随机将线程挂起1-10毫秒
     ThreadUtils.SleepRandomMillisecond(2000, 5000);
+    ```
+
+### 根命名空间  
+
+* `GuidUtils`类：Guid帮助类
+  
+    ```C#
+    //获取一个Guid，格式：9af7f46a-ea52-4aa3-b8c3-9fd484c2af12
+    GuidUtils.GetFormatDefault();
+
+    //获取一个Guid，格式：e0a953c3ee6040eaa9fae2b667060e09
+    GuidUtils.GetFormatN();
+
+    //获取一个Guid，格式：9af7f46a-ea52-4aa3-b8c3-9fd484c2af12
+    GuidUtils.GetFormatD();
+
+    //获取一个Guid，格式：{734fd453-a4f8-4c5d-9c98-3fe2d7079760}
+    GuidUtils.GetFormatB();
+
+    //获取一个Guid，格式：(ade24d16-db0f-40af-8794-1e08e2040df3)
+    GuidUtils.GetFormatP();
+
+    //获取一个Guid，格式：{0x3fa412e3,0x8356,0x428f,{0xaa,0x34,0xb7,0x40,0xda,0xaf,0x45,0x6f}}
+    GuidUtils.GetFormatX();
     ```
 
 ## :three: License

@@ -10,6 +10,10 @@ namespace JiuLing.CommonLibs.Net
     public class HttpClientHelper
     {
         private static HttpClient _httpClient;
+
+        /// <summary>
+        /// 初始化
+        /// </summary>
         public HttpClientHelper()
         {
             _httpClient = new HttpClient();
@@ -57,6 +61,19 @@ namespace JiuLing.CommonLibs.Net
         public async Task<string> PostStringReadString(string url, string data)
         {
             var sc = new StringContent(data);
+            var response = await _httpClient.PostAsync(url, sc);
+            return await response.Content.ReadAsStringAsync();
+        }
+
+        /// <summary>
+        /// 发送一个Json形式的Post请求（使用UTF8编码）
+        /// </summary>
+        /// <param name="url">要请求的URL</param>
+        /// <param name="data">字符串或json串</param>
+        /// <returns>返回服务器请求得到的字符串</returns>
+        public async Task<string> PostJsonReadString(string url, string data)
+        {
+            var sc = new StringContent(data, System.Text.Encoding.UTF8, "application/json");
             var response = await _httpClient.PostAsync(url, sc);
             return await response.Content.ReadAsStringAsync();
         }
