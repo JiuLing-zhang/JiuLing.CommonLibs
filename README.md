@@ -125,6 +125,36 @@
     public async Task<byte[]> PostFormReadByteArray(string url, IEnumerable<KeyValuePair<string, string>> data)
     ```
 
+### `OS`命名空间  
+该命名空间下是一些操作系统相关的类
+
+* `VersionUtils`类：操作系统版本帮助类
+
+    ```C#
+    VersionUtils.IsWindows7;     //当前系统是否为Win7
+    VersionUtils.IsWindows8;     //当前系统是否为Win8
+    VersionUtils.IsWindows81;    //当前系统是否为Win8.1
+    VersionUtils.IsWindows10;    //当前系统是否为Win10   
+    ```
+    ```C#
+    //获取当前操作系统的版本，返回值为一个OSVersionEnum枚举值
+    VersionUtils.GetOSVersion();
+    
+    public enum OSVersionEnum
+    {
+        [Description("Windows7")]
+        Windows7,
+        [Description("Windows8")]
+        Windows8,
+        [Description("Windows8.1")]
+        Windows81,
+        [Description("Windows10")]
+        Windows10,
+        [Description("未知")]
+        Unknown,
+    }
+    ```
+
 ### `Random`命名空间  
 该命名空间下是一些随机数相关的类
 
