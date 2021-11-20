@@ -3,12 +3,12 @@
 [![](https://img.shields.io/nuget/v/JiuLing.CommonLibs)](https://www.nuget.org/packages/JiuLing.CommonLibs/)  
 
 # 一个基于`.NET Standard 2.0`的通用类库
-一个`.NET Standard 2.0`下整理的通用类库。  
+一个`.NET Standard 2.0`下整理的通用类库，基于`MIT License`。  
 
 ## :one: 项目初衷
 新建项目后，经常发现连个`string.IsEmpty()`都没有、想要个`Json`的通用返回值吧，也没有:disappointed_relieved::disappointed_relieved:，当然，还有等等等等等等等等。。。所以我决定整理并集成一下自己平时用的比较多的一些工具类，然后发布到`NuGet`，以后走哪用哪啊有木有~~  
 
-## :two: 使用说明
+## :two: 帮助文档
 > * 类库中以`Utils`结尾的类，都提供了静态方法，可以直接调用  
 > * 类库中的命名空间和类名，尽量与`.NET`保持一致  
 
@@ -252,6 +252,16 @@
 
     //获取一个Guid，格式：{0x3fa412e3,0x8356,0x428f,{0xaa,0x34,0xb7,0x40,0xda,0xaf,0x45,0x6f}}
     GuidUtils.GetFormatX();
+    ```
+
+* `VersionUtils`类：程序版本帮助类
+  
+    ```C#
+    //检查当前版本是否需要更新
+    bool CheckNeedUpdate(Version currentVersion, Version newVersion);
+
+    //检查当前版本是否需要更新。返回（是否需要自动更新，当前版本是否允许使用）
+    (bool IsNeedUpdate, bool IsAllowUse) CheckNeedUpdate(Version currentVersion, Version newVersion, Version minVersion)
     ```
 
 ## :three: License
