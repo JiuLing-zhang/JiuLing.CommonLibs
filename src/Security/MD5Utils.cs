@@ -11,7 +11,7 @@ namespace JiuLing.CommonLibs.Security
         /// <summary>
         /// 编码格式
         /// </summary>
-        public static Encoding MyEncoding = Encoding.UTF8;
+        public static Encoding DefaultEncoding = Encoding.UTF8;
 
         /// <summary>
         /// 计算字符串的32位MD5值（小写）
@@ -31,7 +31,7 @@ namespace JiuLing.CommonLibs.Security
         public static string GetUpperValue(string input)
         {
             var md5 = new MD5CryptoServiceProvider();
-            var byteValue = MyEncoding.GetBytes(input);
+            var byteValue = DefaultEncoding.GetBytes(input);
             var byteHash = md5.ComputeHash(byteValue);
             md5.Clear();
             string tmpValue = "";

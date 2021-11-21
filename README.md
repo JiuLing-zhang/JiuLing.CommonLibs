@@ -172,6 +172,21 @@
     RandomUtils.GetOneFromList<string>(list);
     ```
 
+### `Security`命名空间  
+该命名空间下是一些安全相关的类
+
+* `MD5Utils`类：MD5帮助类
+
+    ```C#
+    //默认编码格式
+    public static Encoding DefaultEncoding = Encoding.UTF8;
+
+    //计算字符串的32位MD5值（小写）
+    MD5Utils.GetLowerValue();
+    //计算字符串的32位MD5值（大写）
+    MD5Utils.GetUpperValue();
+    ```
+
 ### `Text`命名空间  
 该命名空间下是一些文本处理的类
 
