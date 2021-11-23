@@ -187,6 +187,15 @@
     MD5Utils.GetUpperValue();
     ```
 
+* `SHA1Utils`类：SHA1的帮助类
+
+    ```C#
+    //计算文件的SHA1值（小写）
+    SHA1Utils.GetFileLowerValue();
+    //计算文件的SHA1值（大写）
+    SHA1Utils.GetFileUpperValue();
+    ```
+
 ### `Text`命名空间  
 该命名空间下是一些文本处理的类
 

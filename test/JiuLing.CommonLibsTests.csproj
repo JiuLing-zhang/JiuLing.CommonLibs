@@ -17,4 +17,10 @@
     <ProjectReference Include="..\src\JiuLing.CommonLibs.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="Security\test.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+ 
 </Project>
