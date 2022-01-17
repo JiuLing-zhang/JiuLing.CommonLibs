@@ -95,6 +95,10 @@
     public class AppUpgradeInfo
     {
         /// <summary>
+        /// 程序名称
+        /// </summary>
+        public string Name { get; set; }        
+        /// <summary>
         /// 当前版本
         /// </summary>
         public string Version { get; set; }
