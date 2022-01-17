@@ -311,8 +311,14 @@
     //检查当前版本是否需要更新
     bool CheckNeedUpdate(Version currentVersion, Version newVersion);
 
+    //检查当前版本是否需要更新
+    bool CheckNeedUpdate(string currentVersion, string newVersion);
+
     //检查当前版本是否需要更新。返回（是否需要自动更新，当前版本是否允许使用）
     (bool IsNeedUpdate, bool IsAllowUse) CheckNeedUpdate(Version currentVersion, Version newVersion, Version minVersion)
+
+    //检查当前版本是否需要更新。返回（是否需要自动更新，当前版本是否允许使用）
+    (bool IsNeedUpdate, bool IsAllowUse) CheckNeedUpdate(string currentVersion, string newVersion, string minVersion)
     ```
 
 ## :three: License
