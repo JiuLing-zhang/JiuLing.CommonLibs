@@ -45,21 +45,20 @@ namespace JiuLing.CommonLibs.Net
         /// 以byte数组的形式下载文件
         /// </summary>
         /// <param name="url">请求的URL</param>
-        /// <param name="downloadProgress">下载的进度，Action的两个参数分别为（已下载的大小，总大小）</param>
+        /// <param name="progress">下载的进度（百分比）</param>
         /// <param name="bufferSize">下载时缓冲区的字节大小</param>
         /// <returns>返回服务器请求得到的字节数组</returns>
-        public async Task<byte[]> GetFileByteArray(string url, Action<long, long> downloadProgress = null, int bufferSize = 8192)
+        public async Task<byte[]> GetFileByteArray(string url, IProgress<float> progress = null, int bufferSize = 8192)
         {
-            using (var responseMessage = await _httpClient.GetAsync(url))
+            using (var responseMessage = await _httpClient.GetAsync(url, HttpCompletionOption.ResponseHeadersRead))
             {
+                progress?.Report(0);
                 var content = responseMessage.Content;
                 if (content == null)
                 {
                     return Array.Empty<byte>();
                 }
-
-                var headers = content.Headers;
-                long contentLength = headers.ContentLength ?? throw new Exception("未知的文件大小");
+                long contentLength = content.Headers.ContentLength ?? throw new Exception("未知的文件大小");
                 using (var responseStream = await content.ReadAsStreamAsync())
                 {
                     var buffer = new byte[bufferSize];
@@ -70,8 +69,9 @@ namespace JiuLing.CommonLibs.Net
                     {
                         Array.Copy(buffer, 0, bytes, downloadLength, length);
                         downloadLength += length;
-                        downloadProgress?.Invoke(downloadLength, contentLength);
+                        progress?.Report((float)downloadLength / contentLength);
                     }
+                    progress?.Report(1);
                     return bytes.ToArray();
                 }
             }

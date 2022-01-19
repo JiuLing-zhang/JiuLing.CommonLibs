@@ -144,7 +144,7 @@
     public async Task<byte[]> GetReadByteArray(string url);
 
     //异步发送一个GET请求，返回一个文件的字节数组
-    public async Task<byte[]> GetFileByteArray(string url, Action<long, long> downloadProgress = null, int bufferSize = 8192)
+    public async Task<byte[]> GetFileByteArray(string url, IProgress<float> progress = null, int bufferSize = 8192)
 
     //异步发送一个表单形式的Post请求，返回一个字符串
     public async Task<string> PostFormReadString(string url, IEnumerable<KeyValuePair<string, string>> data);
