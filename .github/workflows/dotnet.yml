@@ -1,4 +1,4 @@
-name: .NET
+name: publish-job
 
 on:
   push:
