@@ -1,4 +1,4 @@
-name: Release
+name: release-job
 
 on:
   push:
@@ -16,7 +16,7 @@ jobs:
       - name: Setup .NET
         uses: actions/setup-dotnet@v1
         with:
-          dotnet-version: 2.0.x
+          dotnet-version: 2.1.x
       - name: Restore dependencies
         run: dotnet restore
       - name: Build
