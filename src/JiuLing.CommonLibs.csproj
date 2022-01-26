@@ -7,7 +7,7 @@
 		<PackageProjectUrl>https://github.com/JiuLing-zhang/JiuLing.CommonLibs</PackageProjectUrl>
 		<PackageIcon>nuget_icon.png</PackageIcon>
 		<PackageIconUrl />
-		<Version>1.1.25</Version>
+		<Version>1.1.26</Version>
 		<GenerateDocumentationFile>true</GenerateDocumentationFile>
 	</PropertyGroup>
 	<ItemGroup>
