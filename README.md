@@ -1,7 +1,7 @@
 ![](https://img.shields.io/github/license/JiuLing-zhang/JiuLing.CommonLibs)
-![](https://img.shields.io/github/workflow/status/JiuLing-zhang/JiuLing.CommonLibs/.NET)
-[![](https://img.shields.io/nuget/v/JiuLing.CommonLibs)](https://www.nuget.org/packages/JiuLing.CommonLibs/)  
-
+![](https://img.shields.io/github/workflow/status/JiuLing-zhang/JiuLing.CommonLibs/release-job)
+[![](https://img.shields.io/nuget/v/JiuLing.CommonLibs)](https://www.nuget.org/packages/JiuLing.CommonLibs/)
+[![](https://img.shields.io/github/v/release/JiuLing-zhang/JiuLing.CommonLibs)](https://github.com/JiuLing-zhang/JiuLing.CommonLibs/releases)  
 # 一个基于`.NET Standard 2.0`的通用类库
 一个`.NET Standard 2.0`下整理的通用类库，基于`MIT License`。  
 
