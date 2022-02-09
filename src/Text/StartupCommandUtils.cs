@@ -11,7 +11,7 @@ namespace JiuLing.CommonLibs.Text
     public class StartupCommandUtils
     {
         private static string _input;
-        private static readonly Hashtable Result = new Hashtable();
+        private static Hashtable _result;
         /// <summary>
         /// 初始化参数
         /// </summary>
@@ -23,6 +23,7 @@ namespace JiuLing.CommonLibs.Text
                 throw new ArgumentException("启动参数不能为空");
             }
             _input = input;
+            _result = new Hashtable();
             BuildArgs();
         }
 
@@ -42,11 +43,11 @@ namespace JiuLing.CommonLibs.Text
 
                 string commandKey = argList[0].Trim();
                 argList.RemoveAt(0);
-                if (Result.ContainsKey(commandKey))
+                if (_result.ContainsKey(commandKey))
                 {
                     throw new Exception("参数重复");
                 }
-                Result.Add(commandKey, argList);
+                _result.Add(commandKey, argList);
             }
         }
         /// <summary>
@@ -55,36 +56,36 @@ namespace JiuLing.CommonLibs.Text
         /// <param name="key">参数名，例如：-t</param>
         public static bool HasCommand(string key)
         {
-            return Result.ContainsKey(key);
+            return _result.ContainsKey(key);
         }
         /// <summary>
         /// 获取指定参数的参数值
         /// </summary>
         /// <param name="key">参数名，例如：-t</param>
+        /// <returns>参数不存在时返回null</returns>
         public static IList<string> GetCommandValue(string key)
         {
-            if (!Result.ContainsKey(key))
+            if (!_result.ContainsKey(key))
             {
                 return default;
             }
-            return Result[key] as List<string>;
+            return _result[key] as List<string>;
         }
         /// <summary>
         /// 尝试获取指定参数的参数值
         /// </summary>
         /// <param name="key">参数名，例如：-t</param>
-        /// <param name="commandValue">获取到的参数值</param>
-        /// <returns></returns>
+        /// <param name="commandValue">获取到的参数值，不存在时返回null</param>
+        /// <returns>参数是否存在</returns>
         public static bool TryGetCommandValue(string key, out IList<string> commandValue)
         {
-
-            if (!Result.ContainsKey(key))
+            if (!_result.ContainsKey(key))
             {
                 commandValue = default;
                 return false;
             }
 
-            if (!(Result[key] is List<string> value))
+            if (!(_result[key] is List<string> value))
             {
                 commandValue = default;
                 return false;
