@@ -1,5 +1,8 @@
 ﻿namespace JiuLing.CommonLibs.Log
 {
+    /// <summary>
+    /// 日志接口
+    /// </summary>
     public interface ILogger
     {
         /// <summary>

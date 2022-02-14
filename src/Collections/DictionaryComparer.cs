@@ -12,10 +12,20 @@ namespace JiuLing.CommonLibs.Collections
     public class DictionaryComparer<TKey, TValue> : IEqualityComparer<Dictionary<TKey, TValue>>
     {
         private readonly IEqualityComparer<TValue> _valueComparer;
+        /// <summary>
+        /// 实例化
+        /// </summary>
+        /// <param name="valueComparer"></param>
         public DictionaryComparer(IEqualityComparer<TValue> valueComparer = null)
         {
             this._valueComparer = valueComparer ?? EqualityComparer<TValue>.Default;
         }
+        /// <summary>
+        /// 对象比较
+        /// </summary>
+        /// <param name="x"></param>
+        /// <param name="y"></param>
+        /// <returns></returns>
         public bool Equals(Dictionary<TKey, TValue> x, Dictionary<TKey, TValue> y)
         {
             //判断空对象
@@ -48,6 +58,12 @@ namespace JiuLing.CommonLibs.Collections
             }
             return true;
         }
+        /// <summary>
+        /// GetHashCode（未实现）
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns></returns>
+        /// <exception cref="NotImplementedException"></exception>
         public int GetHashCode(Dictionary<TKey, TValue> obj)
         {
             throw new NotImplementedException();

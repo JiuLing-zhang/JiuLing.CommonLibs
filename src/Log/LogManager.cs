@@ -1,9 +1,16 @@
 ﻿namespace JiuLing.CommonLibs.Log
 {
+    /// <summary>
+    /// 日志管理
+    /// </summary>
     public class LogManager
     {
         private static ILogger _logger;
         private static readonly object LockLogger = new object();
+        /// <summary>
+        /// 获取一个日志对象
+        /// </summary>
+        /// <returns></returns>
         public static ILogger GetLogger()
         {
             if (_logger != null)

@@ -4,6 +4,9 @@ using JiuLing.CommonLibs.ExtensionAttributes;
 
 namespace JiuLing.CommonLibs.ExtensionMethods
 {
+    /// <summary>
+    /// 枚举的扩展方法
+    /// </summary>
     public static class EnumExtension
     {
         /// <summary>
