@@ -2,8 +2,8 @@
 ![](https://img.shields.io/github/workflow/status/JiuLing-zhang/JiuLing.CommonLibs/Build)
 [![](https://img.shields.io/nuget/v/JiuLing.CommonLibs)](https://www.nuget.org/packages/JiuLing.CommonLibs/)
 [![](https://img.shields.io/github/v/release/JiuLing-zhang/JiuLing.CommonLibs)](https://github.com/JiuLing-zhang/JiuLing.CommonLibs/releases)  
-## 一个基于`.NET Standard 2.0`的通用类库
-一个`.NET Standard 2.0`下整理的通用类库，基于`MIT License`。  
+## 一个通用类库
+一个通用类库，基于`MIT License`。  
 
 目前包含的功能有：`Dictionary`对象对比工具、枚举描述、字符串扩展、日志、通用模型、`Cookie`工具、网络请求工具、操作系统版本帮助类、随机数、`MD5`、`SHA1`、正则表达式、时间戳、线程帮助类、`Guid`帮助类、程序版本帮助类、命令行参数解析工具。
 
