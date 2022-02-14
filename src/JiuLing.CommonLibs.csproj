@@ -3,15 +3,15 @@
 		<TargetFramework>netstandard2.0</TargetFramework>
 		<Description>一个基于.NET Standard 2.0的通用类库。目前包含的功能有：Dictionary对象对比工具、枚举描述、字符串扩展、日志、通用模型、Cookie工具、网络请求工具、操作系统版本帮助类、随机数、MD5、SHA1、正则表达式、时间戳、线程帮助类、Guid帮助类、程序版本帮助类、命令行参数解析工具。</Description>
 		<Authors>九零</Authors>
-		<PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+		<PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
 		<PackageProjectUrl>https://github.com/JiuLing-zhang/JiuLing.CommonLibs</PackageProjectUrl>
 		<PackageIcon>nuget_icon.png</PackageIcon>
 		<PackageIconUrl />
-		<Version>1.1.32</Version>
+		<Version>1.1.33</Version>
 		<GenerateDocumentationFile>true</GenerateDocumentationFile>
 		<PackageReadmeFile>README.md</PackageReadmeFile>
 		<Copyright>Copyright (c) 2021 九零</Copyright>
-		<PackageLicenseFile>LICENSE</PackageLicenseFile>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
 	</PropertyGroup>
 	<ItemGroup>
 		<None Include="..\nuget_icon.png">
@@ -19,10 +19,6 @@
 			<PackagePath></PackagePath>
 		</None>
 		<None Include="..\README.md">
-			<Pack>True</Pack>
-			<PackagePath>\</PackagePath>
-		</None>
-		<None Include="..\LICENSE">
 			<Pack>True</Pack>
 			<PackagePath>\</PackagePath>
 		</None>
