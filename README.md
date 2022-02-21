@@ -225,19 +225,24 @@
     //默认编码格式
     public static Encoding DefaultEncoding = Encoding.UTF8;
 
-    //计算字符串的32位MD5值（小写）
-    MD5Utils.GetLowerValue();
-    //计算字符串的32位MD5值（大写）
-    MD5Utils.GetUpperValue();
+    //计算字符串的32位 MD5 值（小写）
+    string GetStringValueToLower(string input);
+    //计算字符串的32位 MD5 值（大写）
+    string GetStringValueToUpper(string input);
+
+    //计算文件的 MD5 值（小写）
+    string GetFileValueToUpper(string fileName);
+    //计算文件的 MD5 值（大写）
+    string GetFileValueToUpper(string fileName);
     ```
 
 * `SHA1Utils`类：SHA1的帮助类
 
     ```C#
-    //计算文件的SHA1值（小写）
-    SHA1Utils.GetFileLowerValue();
-    //计算文件的SHA1值（大写）
-    SHA1Utils.GetFileUpperValue();
+    //计算文件的 SHA1 值（小写）
+    static string GetFileValueToLower(string fileName);
+    //计算文件的 SHA1 值（大写）
+    string GetFileValueToUpper(string fileName);
     ```
 
 ### `Text`命名空间  
