@@ -30,6 +30,14 @@ namespace JiuLing.CommonLibs.Model
         /// </summary>
         public string Log { get; set; }
         /// <summary>
+        /// 文件签名类型（例如 MD5、SHA1 等）
+        /// </summary>
+        public string SignType { get; set; }
+        /// <summary>
+        /// 签名值
+        /// </summary>
+        public string SignValue { get; set; }
+        /// <summary>
         /// 时间
         /// </summary>
         public DateTime CreateTime { get; set; }
