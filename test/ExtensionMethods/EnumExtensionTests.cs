@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using DescriptionAttribute = JiuLing.CommonLibs.ExtensionAttributes.DescriptionAttribute;
+using DescriptionAttribute = System.ComponentModel.DescriptionAttribute;
 
 namespace JiuLing.CommonLibs.ExtensionMethods.Tests
 {

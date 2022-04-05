@@ -6,6 +6,7 @@ namespace JiuLing.CommonLibs.ExtensionAttributes
     /// 描述特性
     /// </summary>
     [AttributeUsage(AttributeTargets.Field)]
+    [Obsolete("请改用System.ComponentModel.DescriptionAttributes", true)]
     public class DescriptionAttribute : Attribute
     {
         private readonly string _description;

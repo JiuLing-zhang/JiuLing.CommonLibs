@@ -1,6 +1,6 @@
 ﻿using System;
+using System.ComponentModel;
 using System.Reflection;
-using JiuLing.CommonLibs.ExtensionAttributes;
 
 namespace JiuLing.CommonLibs.ExtensionMethods
 {
@@ -27,7 +27,7 @@ namespace JiuLing.CommonLibs.ExtensionMethods
                 return input.ToString();
             }
             DescriptionAttribute attribute = field.GetCustomAttribute<DescriptionAttribute>();
-            return attribute.GetDescription();
+            return attribute.Description;
         }
     }
 }

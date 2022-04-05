@@ -35,9 +35,9 @@
     ```C#
     public enum MyEnum
     {
-        [Description("一")]
+        [System.ComponentModel.Description("一")]
         One,
-        [Description("二")]
+        [System.ComponentModel.Description("二")]
         Two,
         Three
     }
