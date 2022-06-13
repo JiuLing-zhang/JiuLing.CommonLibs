@@ -121,7 +121,11 @@
         /// <summary>
         /// 程序名称
         /// </summary>
-        public string Name { get; set; }        
+        public string Name { get; set; }
+        /// <summary>
+        /// 版本号
+        /// </summary>
+        public int VersionCode { get; set; }
         /// <summary>
         /// 当前版本
         /// </summary>
