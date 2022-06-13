@@ -285,8 +285,9 @@
     //返回正则表达式匹配到的所有项
     RegexUtils.GetAll(input, pattern);
 
-    //按照正则表达式分组名称返回第一个匹配项；a="jiuling"
-    string a=GetOneGroupInFirstMatchTest("name:jiuling;age:0;",@"name:(?<name>\w*);");
+    //按照正则表达式分组名称返回第一个匹配项；如果没有匹配到任何项，success=false,否则result返回匹配到的数据。
+    (bool success, string result) GetOneGroupInFirstMatch("name:jiuling;age:0;",@"name:(?<name>\w*);");
+    //返回值 success=true,result="jiuling"
 
     //按照正则表达式分组名称返回所有匹配项；如果没有匹配到任何项，success=false,否则result返回一个IDictionary对象，其Key值为Group的名称 
     (bool success, IDictionary<string, string> result)=RegexUtils.GetMultiGroupInFirstMatch("name:jiuling;age:0;",@"name:(?<name>\w*);age:(?<age>\w*);");
