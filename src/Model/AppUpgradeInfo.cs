@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace JiuLing.CommonLibs.Model
 {
@@ -13,6 +11,10 @@ namespace JiuLing.CommonLibs.Model
         /// 程序名称
         /// </summary>
         public string Name { get; set; }
+        /// <summary>
+        /// 版本号
+        /// </summary>
+        public int VersionCode { get; set; }
         /// <summary>
         /// 当前版本
         /// </summary>
