@@ -160,6 +160,19 @@
 ### `Net`命名空间  
 该命名空间下是网络相关的类
 
+* `BrowserDefaultHeader`类：浏览器的默认Request headers (数据版本：2022-07-13)
+
+    ```C#
+    //Edge 浏览器
+    public static Dictionary<string, string> EdgeHeaders;
+
+    //Chrome 浏览器
+    public static Dictionary<string, string> ChromeHeaders;
+
+    //Firefox 浏览器
+    public static Dictionary<string, string> FirefoxHeaders;
+    ```
+
 * `CookieUtils`类：`Cookie`相关的工具
 
     ```C#
