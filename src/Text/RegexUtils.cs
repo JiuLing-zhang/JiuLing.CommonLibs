@@ -74,6 +74,33 @@ namespace JiuLing.CommonLibs.Text
         /// </summary>
         /// <param name="input">要搜索匹配项的字符串。</param>
         /// <param name="pattern">要匹配的正则表达式模式。</param>
+        /// <returns>如果没有匹配到任何项，返回一个空列表,否则返回匹配到的所有项</returns>
+        public static List<string> GetOneGroupAllMatch(string input, string pattern)
+        {
+            var result = new List<string>();
+            MatchCollection mc = Regex.Matches(input, pattern);
+            if (mc.Count == 0)
+            {
+                return result;
+            }
+
+            foreach (Match m in mc)
+            {
+                if (m.Groups.Count == 1)
+                {
+                    return result;
+                }
+                result.Add(m.Groups[1].Value);
+            }
+
+            return result;
+        }
+
+        /// <summary>
+        /// 根据正则表达式获取输入字符串中的所有匹配项
+        /// </summary>
+        /// <param name="input">要搜索匹配项的字符串。</param>
+        /// <param name="pattern">要匹配的正则表达式模式。</param>
         /// <returns>如果没有匹配到任何项，success=false,否则result返回匹配到的唯一分组</returns>
         public static (bool success, string result) GetOneGroupInFirstMatch(string input, string pattern)
         {

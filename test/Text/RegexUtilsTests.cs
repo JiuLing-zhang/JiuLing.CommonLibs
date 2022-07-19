@@ -73,6 +73,36 @@ namespace JiuLing.CommonLibs.Text.Tests
         }
 
 
+        private static IEnumerable<object[]> GetOneGroupAllMatchData
+        {
+            get
+            {
+                return new[]
+                {
+                    new object[]
+                    {
+                        "<div>a1</div><div>a2</div><div>a3</div>",
+                        @"<div>[\s\S]*?<\/div>",
+                        new List<string>()
+                    },
+                    new object[]
+                    {
+                        "<div>a1</div><div>a2</div><div>a3</div>",
+                        @"<div>(?<value>[\s\S]*?)<\/div>",
+                        new List<string>{ "a1", "a2", "a3" }
+                    }
+                };
+            }
+        }
+
+        [TestMethod()]
+        [DynamicData(nameof(GetOneGroupAllMatchData))]
+        public void GetOneGroupAllMatchTest(string input, string pattern, List<string> result)
+        {
+            List<string> realResult = RegexUtils.GetOneGroupAllMatch(input, pattern);
+            Assert.IsTrue(realResult.SequenceEqual(result));
+        }
+
         [TestMethod()]
         [DataRow("name:jiuling;age:0;", @"name:\w*;", false, "")]
         [DataRow("name:jiuling;age:0;", @"name:(?<name>\w*);age:(?<age>\w*);", false, "")]
