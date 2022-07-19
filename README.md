@@ -302,6 +302,10 @@
     //返回正则表达式匹配到的所有项
     RegexUtils.GetAll(input, pattern);
 
+    //根据正则表达式获取输入字符串中的所有匹配项；如果没有匹配到任何项，返回一个空列表,否则返回匹配到的所有项。
+    List<string> GetOneGroupAllMatch("<div>a1</div><div>a2</div><div>a3</div>", @"<div>(?<value>[\s\S]*?)<\/div>");
+    //返回值 new List<string>{ "a1", "a2", "a3" }
+
     //按照正则表达式分组名称返回第一个匹配项；如果没有匹配到任何项，success=false,否则result返回匹配到的数据。
     (bool success, string result) GetOneGroupInFirstMatch("name:jiuling;age:0;",@"name:(?<name>\w*);");
     //返回值 success=true,result="jiuling"
