@@ -154,6 +154,10 @@
         /// 时间
         /// </summary>
         public DateTime CreateTime { get; set; }
+        /// <summary>
+        /// 文件大小
+        /// </summary>
+        public int FileLength { get; set; }
     }
     ```
 
