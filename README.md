@@ -169,12 +169,19 @@
     ```C#
     //Edge 浏览器
     public static Dictionary<string, string> EdgeHeaders;
+    //Edge的 User-Agent参数
+    public static string EdgeUserAgent;
 
     //Chrome 浏览器
     public static Dictionary<string, string> ChromeHeaders;
+    //Chrome的 User-Agent参数
+    public static string ChromeUserAgent;
 
     //Firefox 浏览器
     public static Dictionary<string, string> FirefoxHeaders;
+    //Firefox的 User-Agent参数
+    public static string FirefoxUserAgent;
+
     ```
 
 * `CookieUtils`类：`Cookie`相关的工具
