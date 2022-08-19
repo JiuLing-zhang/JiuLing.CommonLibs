@@ -13,22 +13,6 @@ namespace JiuLing.CommonLibs.Security.Tests
     public class SHA1UtilsTests
     {
         [TestMethod()]
-        public void GetFileLowerValueTest()
-        {
-            string md5 = "26d82f1931cbdbd83c2a6871b2cecd5cbcc8c26b";
-            string fileName = Path.Combine(Environment.CurrentDirectory, "TestFiles", "FileA.txt");
-            Assert.IsTrue(SHA1Utils.GetFileLowerValue(fileName) == md5);
-        }
-
-        [TestMethod()]
-        public void GetFileUpperValueTest()
-        {
-            string md5 = "26d82f1931cbdbd83c2a6871b2cecd5cbcc8c26b".ToUpper();
-            string fileName = Path.Combine(Environment.CurrentDirectory, "TestFiles", "FileA.txt");
-            Assert.IsTrue(SHA1Utils.GetFileUpperValue(fileName) == md5);
-        }
-
-        [TestMethod()]
         public void GetFileValueToLowerTest()
         {
             string md5 = "26d82f1931cbdbd83c2a6871b2cecd5cbcc8c26b";
@@ -43,5 +27,20 @@ namespace JiuLing.CommonLibs.Security.Tests
             string fileName = Path.Combine(Environment.CurrentDirectory, "TestFiles", "FileA.txt");
             Assert.IsTrue(SHA1Utils.GetFileValueToUpper(fileName) == md5);
         }
+
+        [TestMethod()]
+        [DataRow("test", "a94a8fe5ccb19ba61c4c0873d391e987982fbbd3")]
+        public void GetStringValueToLowerTest(string input, string result)
+        {
+            Assert.IsTrue(SHA1Utils.GetStringValueToLower(input) == result);
+        }
+
+        [TestMethod()]
+        [DataRow("test", "A94A8FE5CCB19BA61C4C0873D391E987982FBBD3")]
+        public void GetStringValueToUpperTest(string input, string result)
+        {
+            Assert.IsTrue(SHA1Utils.GetStringValueToUpper(input) == result);
+        }
+
     }
 }

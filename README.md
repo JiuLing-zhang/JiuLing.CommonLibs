@@ -289,6 +289,11 @@
 * `SHA1Utils`类：SHA1的帮助类
 
     ```C#
+    //计算字符串的 SHA1 值（小写）
+    string GetStringValueToLower(string fileName);
+    //计算字符串的 SHA1 值（大写）
+    string GetFileValueToUpper(string fileName);
+
     //计算文件的 SHA1 值（小写）
     string GetFileValueToLower(string fileName);
     //计算文件的 SHA1 值（大写）

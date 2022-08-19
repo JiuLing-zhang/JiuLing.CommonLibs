@@ -14,20 +14,6 @@ namespace JiuLing.CommonLibs.Security.Tests
     {
         [TestMethod()]
         [DataRow("test", "098f6bcd4621d373cade4e832627b4f6")]
-        public void GetLowerValueTest(string input, string md5)
-        {
-            Assert.IsTrue(MD5Utils.GetLowerValue(input) == md5);
-        }
-
-        [TestMethod()]
-        [DataRow("test", "098F6BCD4621D373CADE4E832627B4F6")]
-        public void GetUpperValueTest(string input, string md5)
-        {
-            Assert.IsTrue(MD5Utils.GetUpperValue(input) == md5);
-        }
-
-        [TestMethod()]
-        [DataRow("test", "098f6bcd4621d373cade4e832627b4f6")]
         public void GetStringValueToLowerTest(string input, string md5)
         {
             Assert.IsTrue(MD5Utils.GetStringValueToLower(input) == md5);

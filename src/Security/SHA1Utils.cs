@@ -12,26 +12,9 @@ namespace JiuLing.CommonLibs.Security
     public class SHA1Utils
     {
         /// <summary>
-        /// 计算文件的SHA1值（小写）
+        /// 编码格式
         /// </summary>
-        /// <param name="path">文件路径</param>
-        /// <returns>返回文件的SHA1值</returns>
-        [Obsolete("该方法以后会删除，请使用 GetFileValueToLower 替代。")]
-        public static string GetFileLowerValue(string path)
-        {
-            return GetFileValueToLower(path);
-        }
-
-        /// <summary>
-        /// 计算文件的SHA1值（大写）
-        /// </summary>
-        /// <param name="path">文件路径</param>
-        /// <returns>返回文件的SHA1值</returns>
-        [Obsolete("该方法以后会删除，请使用 GetFileValueToUpper 替代。")]
-        public static string GetFileUpperValue(string path)
-        {
-            return GetFileValueToUpper(path);
-        }
+        public static Encoding DefaultEncoding = Encoding.UTF8;
 
         /// <summary>
         /// 计算文件的SHA1值（小写）
@@ -61,6 +44,36 @@ namespace JiuLing.CommonLibs.Security
             var sha1 = new SHA1CryptoServiceProvider();
             var byteHash = sha1.ComputeHash(file);
             file.Close();
+
+            string tmpValue = "";
+            for (int i = 0; i < byteHash.Length; i++)
+            {
+                tmpValue += byteHash[i].ToString("X").PadLeft(2, '0');
+            }
+            return tmpValue;
+        }
+
+        /// <summary>
+        /// 计算字符串的SHA1值（小写）
+        /// </summary>
+        /// <param name="input">输入字符串</param>
+        /// <returns>返回字符串的SHA1值</returns>
+        /// <exception cref="FileNotFoundException"></exception>
+        public static string GetStringValueToLower(string input)
+        {
+            return GetStringValueToUpper(input).ToLower();
+        }
+
+        /// <summary>
+        /// 计算字符串的SHA1值（大写）
+        /// </summary>
+        /// <param name="input">输入字符串</param>
+        /// <returns>返回字符串的SHA1值</returns>
+        /// <exception cref="FileNotFoundException"></exception>
+        public static string GetStringValueToUpper(string input)
+        {
+            var buffer = DefaultEncoding.GetBytes(input);//用指定编码转为bytes数组
+            var byteHash = SHA1.Create().ComputeHash(buffer);
 
             string tmpValue = "";
             for (int i = 0; i < byteHash.Length; i++)

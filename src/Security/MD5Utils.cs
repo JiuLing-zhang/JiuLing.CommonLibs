@@ -20,28 +20,6 @@ namespace JiuLing.CommonLibs.Security
         /// </summary>
         /// <param name="input">要计算的字符串</param>
         /// <returns>返回字符串的MD5值</returns>
-        [Obsolete("该方法以后会删除，请使用 GetStringValueToLower 替代。")]
-        public static string GetLowerValue(string input)
-        {
-            return GetStringValueToLower(input);
-        }
-
-        /// <summary>
-        /// 计算字符串的32位MD5值（大写）
-        /// </summary>
-        /// <param name="input">要计算的字符串</param>
-        /// <returns>返回字符串的MD5值</returns>
-        [Obsolete("该方法以后会删除，请使用 GetStringValueToUpper 替代。")]
-        public static string GetUpperValue(string input)
-        {
-            return GetStringValueToUpper(input);
-        }
-
-        /// <summary>
-        /// 计算字符串的32位MD5值（小写）
-        /// </summary>
-        /// <param name="input">要计算的字符串</param>
-        /// <returns>返回字符串的MD5值</returns>
         public static string GetStringValueToLower(string input)
         {
             return GetStringValueToUpper(input).ToLower();
