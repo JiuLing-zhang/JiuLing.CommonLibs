@@ -39,5 +39,31 @@ namespace JiuLing.CommonLibs.Random
             var index = MyRandom.Next(0, input.Count);
             return input[index];
         }
+
+        /// <summary>
+        /// 获取一个指定长度的16进制随机数（小写）
+        /// </summary>
+        /// <param name="length">长度</param>
+        /// <returns></returns>
+        public static string GetOneHexByLengthToLower(int length = 1)
+        {
+            return GetOneHexByLengthToUpper(length).ToLower();
+        }
+
+        /// <summary>
+        /// 获取一个指定长度的16进制随机数（大写）
+        /// </summary>
+        /// <param name="length">长度</param>
+        /// <returns></returns>
+        public static string GetOneHexByLengthToUpper(int length = 1)
+        {
+            string result = "";
+            while (length > 0)
+            {
+                result += MyRandom.Next(0, 256).ToString("X").PadLeft(2, '0');
+                length--;
+            }
+            return result;
+        }
     }
 }
