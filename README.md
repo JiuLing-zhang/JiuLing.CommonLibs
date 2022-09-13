@@ -279,6 +279,16 @@
 ### `Security`命名空间  
 该命名空间下是一些安全相关的类
 
+* `MD5Utils`类：Base64的工具类  
+
+    ```C#
+    //默认编码格式
+    public static Encoding DefaultEncoding = Encoding.UTF8;
+
+    //获取字符串的Base64值
+    string GetStringValue(string input);
+    ```
+
 * `MD5Utils`类：MD5帮助类
 
     ```C#
