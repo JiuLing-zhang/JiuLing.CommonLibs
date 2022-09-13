@@ -266,6 +266,16 @@
     RandomUtils.GetOneFromList<string>(list);
     ```
 
+    ```C#
+    //获取一个指定长度的16进制随机数（小写）
+    //返回 fdd1eada
+    RandomUtils.GetOneHexByLengthToLower(4);
+    
+    //获取一个指定长度的16进制随机数（大写）
+    //返回 A46D59A4
+    RandomUtils.GetOneHexByLengthToUpper(4);
+    ```
+
 ### `Security`命名空间  
 该命名空间下是一些安全相关的类
 

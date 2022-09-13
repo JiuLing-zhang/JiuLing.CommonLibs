@@ -32,5 +32,24 @@ namespace JiuLing.CommonLibs.Random.Tests
             result = RandomUtils.GetOneFromList<string>(list);
             Assert.IsTrue(list.Contains(result));
         }
+
+
+        [TestMethod()]
+        [DataRow(0)]
+        [DataRow(3)]
+        [DataRow(5)]
+        public void GetOneHexByLengthToLowerTest(int randomLength)
+        {
+            Assert.IsTrue(RandomUtils.GetOneHexByLengthToLower(randomLength).Length == randomLength * 2);
+        }
+
+        [TestMethod()]
+        [DataRow(0)]
+        [DataRow(3)]
+        [DataRow(5)]
+        public void GetOneHexByLengthToUpperTest(int randomLength)
+        {
+            Assert.IsTrue(RandomUtils.GetOneHexByLengthToUpper(randomLength).Length == randomLength * 2);
+        }
     }
 }
