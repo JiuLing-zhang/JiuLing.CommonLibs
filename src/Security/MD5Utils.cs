@@ -68,13 +68,33 @@ namespace JiuLing.CommonLibs.Security
                 throw new FileNotFoundException(fileName);
             }
 
+            using (var stream = File.OpenRead(fileName))
+            {
+                return GetFileValueToUpper(stream);
+            }
+        }
+
+        /// <summary>
+        /// 计算文件的MD5（小写）
+        /// </summary>
+        /// <param name="stream">文件流</param>
+        /// <returns></returns>
+        public static string GetFileValueToLower(Stream stream)
+        {
+            return GetFileValueToUpper(stream).ToLower();
+        }
+
+        /// <summary>
+        /// 计算文件的MD5（大写）
+        /// </summary>
+        /// <param name="stream">文件流</param>
+        /// <returns></returns>
+        public static string GetFileValueToUpper(Stream stream)
+        {
             using (var md5Instance = MD5.Create())
             {
-                using (var stream = File.OpenRead(fileName))
-                {
-                    var hashResult = md5Instance.ComputeHash(stream);
-                    return BitConverter.ToString(hashResult).Replace("-", "");
-                }
+                var hashResult = md5Instance.ComputeHash(stream);
+                return BitConverter.ToString(hashResult).Replace("-", "");
             }
         }
     }

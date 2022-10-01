@@ -360,8 +360,10 @@
 
     //计算文件的 MD5 值（小写）
     string GetFileValueToUpper(string fileName);
+    string GetFileValueToUpper(Stream stream);
     //计算文件的 MD5 值（大写）
     string GetFileValueToUpper(string fileName);
+    string GetFileValueToUpper(Stream stream);
     ```
 
 * `SHA1Utils`类：SHA1的帮助类
