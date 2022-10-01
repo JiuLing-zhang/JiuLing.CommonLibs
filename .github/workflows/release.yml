@@ -16,8 +16,7 @@ jobs:
       - name: Setup .NET
         uses: actions/setup-dotnet@v1
         with:
-          dotnet-version: 7.0.x
-          dotnet-quality: preview
+          dotnet-version: 7.0.0-rc.1.22427.1
 
       - name: Restore dependencies
         run: dotnet restore
