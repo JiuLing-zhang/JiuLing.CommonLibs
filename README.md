@@ -376,8 +376,10 @@
 
     //计算文件的 SHA1 值（小写）
     string GetFileValueToLower(string fileName);
+    string GetFileValueToLower(Stream stream);
     //计算文件的 SHA1 值（大写）
     string GetFileValueToUpper(string fileName);
+    string GetFileValueToUpper(Stream stream);
     ```
 
 ### `Text`命名空间  

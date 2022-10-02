@@ -1,10 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using JiuLing.CommonLibs.Security;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.IO;
 
 namespace JiuLing.CommonLibs.Security.Tests
@@ -26,6 +21,24 @@ namespace JiuLing.CommonLibs.Security.Tests
             string md5 = "26d82f1931cbdbd83c2a6871b2cecd5cbcc8c26b".ToUpper();
             string fileName = Path.Combine(Environment.CurrentDirectory, "TestFiles", "FileA.txt");
             Assert.IsTrue(SHA1Utils.GetFileValueToUpper(fileName) == md5);
+        }
+
+        [TestMethod()]
+        public void GetFileValueToLowerStreamTest()
+        {
+            string md5 = "26d82f1931cbdbd83c2a6871b2cecd5cbcc8c26b";
+            string fileName = Path.Combine(Environment.CurrentDirectory, "TestFiles", "FileA.txt");
+            using var stream = File.OpenRead(fileName);
+            Assert.IsTrue(SHA1Utils.GetFileValueToLower(stream) == md5);
+        }
+
+        [TestMethod()]
+        public void GetFileValueToUpperStreamTest()
+        {
+            string md5 = "26d82f1931cbdbd83c2a6871b2cecd5cbcc8c26b".ToUpper();
+            string fileName = Path.Combine(Environment.CurrentDirectory, "TestFiles", "FileA.txt");
+            using var stream = File.OpenRead(fileName);
+            Assert.IsTrue(SHA1Utils.GetFileValueToUpper(stream) == md5);
         }
 
         [TestMethod()]

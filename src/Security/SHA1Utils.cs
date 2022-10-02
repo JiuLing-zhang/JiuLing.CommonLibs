@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
+﻿using System.IO;
 using System.Security.Cryptography;
 using System.Text;
 
@@ -40,10 +38,31 @@ namespace JiuLing.CommonLibs.Security
                 throw new FileNotFoundException(fileName);
             }
 
-            var file = new FileStream(fileName, FileMode.Open);
+            using (var file = new FileStream(fileName, FileMode.Open))
+            {
+                return GetFileValueToUpper(file);
+            }
+        }
+
+        /// <summary>
+        /// 计算文件的SHA1值（小写）
+        /// </summary>
+        /// <param name="stream">文件流</param>
+        /// <returns>返回文件的SHA1值</returns>
+        public static string GetFileValueToLower(Stream stream)
+        {
+            return GetFileValueToUpper(stream).ToLower();
+        }
+
+        /// <summary>
+        /// 计算文件的SHA1值（大写）
+        /// </summary>
+        /// <param name="stream">文件流</param>
+        /// <returns>返回文件的SHA1值</returns>
+        public static string GetFileValueToUpper(Stream stream)
+        {
             var sha1 = new SHA1CryptoServiceProvider();
-            var byteHash = sha1.ComputeHash(file);
-            file.Close();
+            var byteHash = sha1.ComputeHash(stream);
 
             string tmpValue = "";
             for (int i = 0; i < byteHash.Length; i++)
