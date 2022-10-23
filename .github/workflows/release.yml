@@ -24,6 +24,9 @@ jobs:
       - name: Build
         run: dotnet build --no-restore -c release
 
+      - name: Test
+        run: dotnet test --verbosity normal
+
       - name: Get version
         uses: olegtarasov/get-tag@v2.1
         id: tagName
