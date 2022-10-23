@@ -461,6 +461,13 @@
 ### `Threading`命名空间  
 该命名空间下是一些线程相关的类
 
+* `AppUtils`类：应用程序相关的工具类
+
+    ```C#
+    //检查App是否重复运行（用于判断多开）
+    bool isRerun = AppUtils.IsRerun("JiuLing.CommonLibs.Test");
+    ```
+
 * `ThreadUtils`类：线程帮助类
 
     ```C#
