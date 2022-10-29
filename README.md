@@ -91,6 +91,68 @@
     logger.Write("test");
     ```
 
+### `Middleware`命名空间  
+该命名空间下是一个简单的异步中间件。
+
+* 用法
+1. 了解中间件`IMiddleware`接口。
+    * `TContext` : 中间件传递的上下文类型，目前仅支持引用类型。
+    * `IsExecuteNext` : 指示是否执行后续的中间件。
+    * `InvokeAsync` : 中间件的具体异步实现。
+
+2. 中间件具体实现。
+```C#
+    //中间件1
+    internal class MiddlewareAsyncTest1 : IMiddleware<List<int>>
+    {
+        public bool IsExecuteNext { get; set; } = true;
+        public Task InvokeAsync(List<int> context)
+        {
+            context.Add(1);
+            return Task.CompletedTask;
+        }
+    }
+
+    //中间件2
+    internal class MiddlewareAsyncTest2 : IMiddleware<List<int>>
+    {
+        public bool IsExecuteNext { get; set; }
+        public Task InvokeAsync(List<int> context)
+        {
+            context.Add(2);
+            //不在执行后续中间件
+            IsExecuteNext = false;
+            return Task.CompletedTask;
+        }
+    }
+
+    //中间件3
+    internal class MiddlewareAsyncTest3 : IMiddleware<List<int>>
+    {
+        public bool IsExecuteNext { get; set; }
+        public Task InvokeAsync(List<int> context)
+        {
+            context.Add(3);
+            return Task.CompletedTask;
+        }
+    }
+```
+
+3. 构建中间件
+```C#
+    var builder = Middleware.CreateBuilder<List<int>>();
+    builder
+        .Use(new MiddlewareAsyncTest1())
+        .Use(new MiddlewareAsyncTest2())
+        .Use(new MiddlewareAsyncTest3());
+```
+
+4. 执行中间件
+```C#
+    //方法入参是初始化的上下文，返回值是执行完的上下文。
+    var result = await builder.ExecuteAsync(new List<int>());
+```
+
 ### `Model`命名空间  
 该命名空间下是一些通用的数据模型
 
