@@ -36,12 +36,11 @@ body:
       label: 程序版本
       description: 错误出现在哪个版本中。
       options:
+        - 1.4.0
         - 1.3.9
         - 1.3.7
         - 1.3.6
         - 1.3.5
-        - 1.3.4
-        - 1.3.3
         - 更早
     validations:
       required: true
