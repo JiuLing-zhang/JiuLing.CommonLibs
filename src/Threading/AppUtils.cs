@@ -8,14 +8,6 @@ namespace JiuLing.CommonLibs.Threading
     /// </summary>
     public class AppUtils
     {
-        private static Mutex _rerunMutex;
-        private static Mutex GetRerunMutex(string name)
-        {
-            var mutex = new Mutex(false, name);
-            Interlocked.CompareExchange(ref _rerunMutex, mutex, null);
-            return _rerunMutex;
-        }
-
         /// <summary>
         /// 程序是否重复运行
         /// </summary>
@@ -30,11 +22,20 @@ namespace JiuLing.CommonLibs.Threading
                 throw new ArgumentException("AppName不能包含关键字\\");
             }
             var mutexName = globalSession ? $"Global\\{appName}" : appName;
-            if (!GetRerunMutex(mutexName).WaitOne(0, false))
+            try
+            {
+                var mutex = new Mutex(false, mutexName);
+                if (!mutex.WaitOne(0, false))
+                {
+                    return true;
+                }
+                return false;
+
+            }
+            catch (UnauthorizedAccessException)
             {
                 return true;
             }
-            return false;
         }
     }
 }
