@@ -18,6 +18,8 @@ namespace JiuLing.CommonLibs.Threading.Tests
             var task1 = new Task(() =>
             {
                 result1 = AppUtils.IsRerun(appName);
+                //Github action测试一直不通过，排除下task1、task12使用的同一线程
+                System.Threading.Thread.Sleep(5000);
             });
 
             bool? result2 = null;
