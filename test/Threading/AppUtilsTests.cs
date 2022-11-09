@@ -7,8 +7,6 @@ namespace JiuLing.CommonLibs.Threading.Tests
     [TestClass()]
     public class AppUtilsTests
     {
-        //TODO 排查 GitHub action 测试不通过的原因
-        [Ignore("GitHub action 测试不通过，暂时屏蔽掉")]
         [TestMethod()]
         public void IsRerunTest()
         {
