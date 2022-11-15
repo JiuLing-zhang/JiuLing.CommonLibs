@@ -27,7 +27,7 @@ namespace JiuLing.CommonLibs.Threading
         /// <summary>
         /// 离开
         /// </summary>
-        public void Leave()
+        public void Exit()
         {
             Interlocked.Exchange(ref _lockValue, 0);
         }

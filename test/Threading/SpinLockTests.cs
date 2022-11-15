@@ -21,7 +21,7 @@ namespace JiuLing.CommonLibs.Threading.Tests
         }
 
         [TestMethod()]
-        public void LeaveTest()
+        public void ExitTest()
         {
             var spinLock = new SpinLock();
 
@@ -33,7 +33,7 @@ namespace JiuLing.CommonLibs.Threading.Tests
                 {
                     spinLock.Enter();
                     _count = _count + 1;
-                    spinLock.Leave();
+                    spinLock.Exit();
                 }));
             }
             Task.WaitAll(tasks.ToArray());

@@ -542,7 +542,7 @@
     var spinLock = new SpinLock();
     spinLock.Enter();
     //Do your jobs
-    spinLock.Leave();
+    spinLock.Exit();
     ```
 
 * `ThreadUtils`类：线程帮助类
