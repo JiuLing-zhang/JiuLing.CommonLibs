@@ -536,6 +536,15 @@
     bool isRerun = AppUtils.IsRerun("JiuLing.CommonLibs.Test");
     ```
 
+* `SpinLock`类：一个自旋锁（不建议用于 IO 高并发场景）
+
+    ```C#
+    var spinLock = new SpinLock();
+    spinLock.Enter();
+    //Do your jobs
+    spinLock.Leave();
+    ```
+
 * `ThreadUtils`类：线程帮助类
 
     ```C#
