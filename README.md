@@ -317,33 +317,6 @@
     }
     ```
 
-### `Random`命名空间  
-该命名空间下是一些随机数相关的类
-
-* `RandomUtils`类：随机数帮助类
-
-    ```C#
-    RandomUtils.GetOneByLength();    //返回一个长度为10的随机数
-    RandomUtils.GetOneByLength(20);  //返回一个长度为20的随机数
-
-    //方法定义  T GetOneFromList<T>(IList<T> input)
-    //随机返回list中的一个元素
-    var list = new List<string>();
-    list.Add("a");
-    list.Add("b");
-    RandomUtils.GetOneFromList<string>(list);
-    ```
-
-    ```C#
-    //获取一个指定长度的16进制随机数（小写）
-    //返回 fdd1eada
-    RandomUtils.GetOneHexByLengthToLower(4);
-    
-    //获取一个指定长度的16进制随机数（大写）
-    //返回 A46D59A4
-    RandomUtils.GetOneHexByLengthToUpper(4);
-    ```
-
 ### `Security`命名空间  
 该命名空间下是一些安全相关的类
 
@@ -577,6 +550,30 @@
 
     //获取一个Guid，格式：{0x3fa412e3,0x8356,0x428f,{0xaa,0x34,0xb7,0x40,0xda,0xaf,0x45,0x6f}}
     GuidUtils.GetFormatX();
+    ```
+
+* `RandomUtils`类：随机数帮助类
+
+    ```C#
+    RandomUtils.GetOneByLength();    //返回一个长度为10的随机数
+    RandomUtils.GetOneByLength(20);  //返回一个长度为20的随机数
+
+    //方法定义  T GetOneFromList<T>(IList<T> input)
+    //随机返回list中的一个元素
+    var list = new List<string>();
+    list.Add("a");
+    list.Add("b");
+    RandomUtils.GetOneFromList<string>(list);
+    ```
+
+    ```C#
+    //获取一个指定长度的16进制随机数（小写）
+    //返回 fdd1eada
+    RandomUtils.GetOneHexByLengthToLower(4);
+    
+    //获取一个指定长度的16进制随机数（大写）
+    //返回 A46D59A4
+    RandomUtils.GetOneHexByLengthToUpper(4);
     ```
 
 * `VersionUtils`类：程序版本帮助类

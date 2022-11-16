@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
-namespace JiuLing.CommonLibs.Random
+namespace JiuLing.CommonLibs
 {
-    //TODO 删除当前类
-
     /// <summary>
     /// 随机数帮助类
     /// </summary>
-    [Obsolete("该类将于 v1.6 版本中删除，请改用 JiuLing.CommonLibs.RandomUtils")]
     public class RandomUtils
     {
         private static readonly System.Random MyRandom = new System.Random();
