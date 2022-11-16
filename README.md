@@ -576,6 +576,22 @@
     RandomUtils.GetOneHexByLengthToUpper(4);
     ```
 
+* `TempIdGenerator`类：一个线程安全的临时 Id 生成器
+  
+    ```C#
+    //创建一个6位 Id 的生成器
+    var tempIdGenerator = new TempIdGenerator(6);
+
+    //生成 Id。expiration 参数是 Id 的过期时间。
+    DateTime expiration = DateTime.Now.AddSeconds(5);
+    var id = tempIdGenerator.Create(expiration);
+
+    //生成 Id。expiration 参数是 Id 的过期时间。
+    var time = DateTime.Now;
+    TimeSpan expiration = time.AddSeconds(5).Subtract(time);
+    var id = tempIdGenerator.Create(expiration);
+    ```
+
 * `VersionUtils`类：程序版本帮助类
   
     ```C#
