@@ -10,10 +10,10 @@
 
 目前包含的功能有：`Dictionary`对象对比工具、枚举描述、字符串扩展、日志、通用模型、`Cookie`工具、网络请求工具、操作系统版本帮助类、随机数、`MD5`、`SHA1`、正则表达式、时间戳、线程帮助类、`Guid`帮助类、程序版本帮助类、命令行参数解析工具。
 
-## :one: 项目初衷
+## 项目初衷
 新建项目后，经常发现连个`string.IsEmpty()`都没有、想要个`Json`的通用返回值吧，也没有:disappointed_relieved::disappointed_relieved:，当然，还有等等等等等等等等。。。所以我决定整理并集成一下自己平时用的比较多的一些工具类，然后发布到`NuGet`，以后走哪用哪啊有木有~~  
 
-## :two: 帮助文档
+## 帮助文档
 > * 类库中以`Utils`结尾的类，都提供了静态方法，可以直接调用  
 > * 类库中的命名空间和类名，尽量与`.NET`保持一致  
 
@@ -605,5 +605,5 @@
     (bool IsNeedUpdate, bool IsAllowUse) CheckNeedUpdate(string currentVersion, string newVersion, string minVersion)
     ```
 
-## :three: License
+## License
 本项目基于`MIT License`
