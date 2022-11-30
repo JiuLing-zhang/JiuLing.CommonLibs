@@ -11,13 +11,13 @@ namespace JiuLing.CommonLibs
     /// </summary>
     public class TempIdGenerator
     {
-        private readonly static System.Random _random = new System.Random();
+        private static readonly System.Random MyRandom = new System.Random();
         private readonly SpinLock _spinLock = new SpinLock();
         private readonly List<TempId> _ids;
 
-        private int _minValue;
-        private int _maxValue;
-        private int _counter;
+        private readonly int _minValue;
+        private readonly int _maxValue;
+        private readonly int _counter;
         /// <summary>
         /// 实例化
         /// </summary>
@@ -61,10 +61,10 @@ namespace JiuLing.CommonLibs
                 return 0;
             }
 
-            int id = 0;
+            int id;
             do
             {
-                id = _random.Next(_minValue, _maxValue);
+                id = MyRandom.Next(_minValue, _maxValue);
             } while (_ids.Count(x => x.Id == id) > 0);
 
             _ids.Add(new TempId(id, expiration));
