@@ -104,7 +104,7 @@ namespace JiuLing.CommonLibs.Security.HttpSign
         /// <returns></returns>
         public HttpSigner SetSignTextBase64()
         {
-            _signString = Base64Utils.GetStringValue(_signString);
+            _signString = Base64Utils.StringToBase64(_signString);
             return this;
         }
 

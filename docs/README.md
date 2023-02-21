@@ -389,8 +389,10 @@ Base64 的工具类。
 //默认编码格式
 public static Encoding DefaultEncoding = Encoding.UTF8;
 
-//获取字符串的 Base64 值
-string GetStringValue(string input);
+//Base64 转字符串
+string Base64ToString(string input);
+//字符串转 Base64
+string StringToBase64(string input);
 ```
 
 ## `MD5Utils` 类  
