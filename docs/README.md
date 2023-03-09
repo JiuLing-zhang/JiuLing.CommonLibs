@@ -432,6 +432,23 @@ string GetFileValueToUpper(string fileName);
 string GetFileValueToUpper(Stream stream);
 ```
 
+## `SHA256Utils` 类  
+SHA256 的帮助类。  
+
+```C#
+//计算字符串的 SHA256 值（小写）
+string GetStringValueToLower(string fileName);
+//计算字符串的 SHA256 值（大写）
+string GetFileValueToUpper(string fileName);
+
+//计算文件的 SHA256 值（小写）
+string GetFileValueToLower(string fileName);
+string GetFileValueToLower(Stream stream);
+//计算文件的 SHA256 值（大写）
+string GetFileValueToUpper(string fileName);
+string GetFileValueToUpper(Stream stream);
+```
+
 # `Text` 命名空间  
 该命名空间下是一些文本处理的类。  
 
