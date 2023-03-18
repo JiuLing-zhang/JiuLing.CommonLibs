@@ -1,4 +1,5 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using JiuLing.CommonLibs.Security;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.IO;
 
@@ -55,5 +56,22 @@ namespace JiuLing.CommonLibs.Security.Tests
             Assert.IsTrue(SHA1Utils.GetStringValueToUpper(input) == result);
         }
 
+        [TestMethod()]
+        public void GetBytesValueToLowerTest()
+        {
+            string result = "26d82f1931cbdbd83c2a6871b2cecd5cbcc8c26b";
+            string fileName = Path.Combine(Environment.CurrentDirectory, "TestFiles", "FileA.txt");
+            var bytes = File.ReadAllBytes(fileName);
+            Assert.IsTrue(SHA1Utils.GetBytesValueToLower(bytes) == result);
+        }
+
+        [TestMethod()]
+        public void GetBytesValueToUpperTest()
+        {
+            string result = "26d82f1931cbdbd83c2a6871b2cecd5cbcc8c26b".ToUpper();
+            string fileName = Path.Combine(Environment.CurrentDirectory, "TestFiles", "FileA.txt");
+            var bytes = File.ReadAllBytes(fileName);
+            Assert.IsTrue(SHA1Utils.GetBytesValueToUpper(bytes) == result);
+        }
     }
 }

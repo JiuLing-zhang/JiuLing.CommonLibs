@@ -61,8 +61,7 @@ namespace JiuLing.CommonLibs.Security
         /// <returns>返回文件的SHA1值</returns>
         public static string GetFileValueToUpper(Stream stream)
         {
-            var sha1 = new SHA1CryptoServiceProvider();
-            var byteHash = sha1.ComputeHash(stream);
+            var byteHash = SHA1.Create().ComputeHash(stream);
 
             string tmpValue = "";
             for (int i = 0; i < byteHash.Length; i++)
@@ -92,6 +91,35 @@ namespace JiuLing.CommonLibs.Security
         public static string GetStringValueToUpper(string input)
         {
             var buffer = DefaultEncoding.GetBytes(input);//用指定编码转为bytes数组
+            var byteHash = SHA1.Create().ComputeHash(buffer);
+
+            string tmpValue = "";
+            for (int i = 0; i < byteHash.Length; i++)
+            {
+                tmpValue += byteHash[i].ToString("X").PadLeft(2, '0');
+            }
+            return tmpValue;
+        }
+
+        /// <summary>
+        /// 计算SHA1值（小写）
+        /// </summary>
+        /// <param name="buffer">字节数组</param>
+        /// <returns>返回字符串的SHA1值</returns>
+        /// <exception cref="FileNotFoundException"></exception>
+        public static string GetBytesValueToLower(byte[] buffer)
+        {
+            return GetBytesValueToUpper(buffer).ToLower();
+        }
+
+        /// <summary>
+        /// 计算SHA1值（大写）
+        /// </summary>
+        /// <param name="buffer">字节数组</param>
+        /// <returns>返回字节数组的SHA1值</returns>
+        /// <exception cref="FileNotFoundException"></exception>
+        public static string GetBytesValueToUpper(byte[] buffer)
+        { 
             var byteHash = SHA1.Create().ComputeHash(buffer);
 
             string tmpValue = "";

@@ -427,9 +427,12 @@ string GetFileValueToUpper(string fileName);
 //计算文件的 SHA1 值（小写）
 string GetFileValueToLower(string fileName);
 string GetFileValueToLower(Stream stream);
+string GetFileValueToLower(byte[] buffer);
+
 //计算文件的 SHA1 值（大写）
 string GetFileValueToUpper(string fileName);
 string GetFileValueToUpper(Stream stream);
+string GetFileValueToUpper(byte[] buffer);
 ```
 
 ## `SHA256Utils` 类  

@@ -62,8 +62,7 @@ namespace JiuLing.CommonLibs.Security
         /// <returns>返回文件的哈希值</returns>
         public static string GetFileValueToUpper(Stream stream)
         {
-            SHA256 sha256 = SHA256.Create();
-            byte[] hash = sha256.ComputeHash(stream);
+            byte[] hash = SHA256.Create().ComputeHash(stream);
             return BitConverter.ToString(hash).Replace("-", "");
         }
 
@@ -87,9 +86,37 @@ namespace JiuLing.CommonLibs.Security
         public static string GetStringValueToUpper(string input)
         {
             byte[] inputBytes = DefaultEncoding.GetBytes(input);
-            SHA256 sha256 = SHA256.Create();
-            byte[] hashBytes = sha256.ComputeHash(inputBytes);
+            byte[] hashBytes = SHA256.Create().ComputeHash(inputBytes);
             return BitConverter.ToString(hashBytes).Replace("-", "");
+        }
+
+        /// <summary>
+        /// 计算SHA256值（小写）
+        /// </summary>
+        /// <param name="buffer">字节数组</param>
+        /// <returns>返回字符串的SHA1值</returns>
+        /// <exception cref="FileNotFoundException"></exception>
+        public static string GetBytesValueToLower(byte[] buffer)
+        {
+            return GetBytesValueToUpper(buffer).ToLower();
+        }
+
+        /// <summary>
+        /// 计算SHA256值（大写）
+        /// </summary>
+        /// <param name="buffer">字节数组</param>
+        /// <returns>返回字节数组的SHA1值</returns>
+        /// <exception cref="FileNotFoundException"></exception>
+        public static string GetBytesValueToUpper(byte[] buffer)
+        {
+            var byteHash = SHA256.Create().ComputeHash(buffer);
+
+            string tmpValue = "";
+            for (int i = 0; i < byteHash.Length; i++)
+            {
+                tmpValue += byteHash[i].ToString("X").PadLeft(2, '0');
+            }
+            return tmpValue;
         }
     }
 }
