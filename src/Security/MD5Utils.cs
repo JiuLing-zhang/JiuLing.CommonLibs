@@ -91,6 +91,7 @@ namespace JiuLing.CommonLibs.Security
         /// <returns></returns>
         public static string GetFileValueToUpper(Stream stream)
         {
+            stream.Position = 0;
             using (var md5Instance = MD5.Create())
             {
                 var hashResult = md5Instance.ComputeHash(stream);

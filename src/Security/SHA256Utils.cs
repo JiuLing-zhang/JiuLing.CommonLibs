@@ -62,6 +62,7 @@ namespace JiuLing.CommonLibs.Security
         /// <returns>返回文件的哈希值</returns>
         public static string GetFileValueToUpper(Stream stream)
         {
+            stream.Position = 0;
             byte[] hash = SHA256.Create().ComputeHash(stream);
             return BitConverter.ToString(hash).Replace("-", "");
         }

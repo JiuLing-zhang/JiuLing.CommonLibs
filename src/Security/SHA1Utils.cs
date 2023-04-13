@@ -61,6 +61,7 @@ namespace JiuLing.CommonLibs.Security
         /// <returns>返回文件的SHA1值</returns>
         public static string GetFileValueToUpper(Stream stream)
         {
+            stream.Position = 0;
             var byteHash = SHA1.Create().ComputeHash(stream);
 
             string tmpValue = "";
