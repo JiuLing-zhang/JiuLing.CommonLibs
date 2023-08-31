@@ -47,8 +47,10 @@ namespace JiuLing.CommonLibs.Security.Tests
         {
             string md5 = "3de8f8b0dc94b8c2230fab9ec0ba0506";
             string fileName = Path.Combine(Environment.CurrentDirectory, "TestFiles", "FileA.txt");
-            using var stream = File.OpenRead(fileName);
-            Assert.IsTrue(MD5Utils.GetFileValueToLower(stream) == md5);
+            using (var stream = File.OpenRead(fileName))
+            {
+                Assert.IsTrue(MD5Utils.GetFileValueToLower(stream) == md5);
+            }
         }
 
         [TestMethod()]
@@ -56,8 +58,10 @@ namespace JiuLing.CommonLibs.Security.Tests
         {
             string md5 = "3de8f8b0dc94b8c2230fab9ec0ba0506".ToUpper();
             string fileName = Path.Combine(Environment.CurrentDirectory, "TestFiles", "FileA.txt");
-            using var stream = File.OpenRead(fileName);
-            Assert.IsTrue(MD5Utils.GetFileValueToUpper(stream) == md5);
+            using (var stream = File.OpenRead(fileName))
+            {
+                Assert.IsTrue(MD5Utils.GetFileValueToUpper(stream) == md5);
+            }
         }
     }
 }

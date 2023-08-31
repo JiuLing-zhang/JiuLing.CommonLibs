@@ -29,8 +29,10 @@ namespace JiuLing.CommonLibs.Security.Tests
         {
             string hash = "f29bc64a9d3732b4b9035125fdb3285f5b6455778edca72414671e0ca3b2e0de";
             string fileName = Path.Combine(Environment.CurrentDirectory, "TestFiles", "FileA.txt");
-            using var stream = File.OpenRead(fileName);
-            Assert.IsTrue(SHA256Utils.GetFileValueToLower(stream) == hash);
+            using (var stream = File.OpenRead(fileName))
+            {
+                Assert.IsTrue(SHA256Utils.GetFileValueToLower(stream) == hash);
+            }
         }
 
         [TestMethod()]
@@ -38,8 +40,10 @@ namespace JiuLing.CommonLibs.Security.Tests
         {
             string hash = "F29BC64A9D3732B4B9035125FDB3285F5B6455778EDCA72414671E0CA3B2E0DE";
             string fileName = Path.Combine(Environment.CurrentDirectory, "TestFiles", "FileA.txt");
-            using var stream = File.OpenRead(fileName);
-            Assert.IsTrue(SHA256Utils.GetFileValueToUpper(stream) == hash);
+            using (var stream = File.OpenRead(fileName))
+            {
+                Assert.IsTrue(SHA256Utils.GetFileValueToUpper(stream) == hash);
+            }
         }
 
         [TestMethod()]
@@ -72,7 +76,7 @@ namespace JiuLing.CommonLibs.Security.Tests
         {
             string hash = "f29bc64a9d3732b4b9035125fdb3285f5b6455778edca72414671e0ca3b2e0de".ToUpper();
             string fileName = Path.Combine(Environment.CurrentDirectory, "TestFiles", "FileA.txt");
-            var bytes=File.ReadAllBytes(fileName);
+            var bytes = File.ReadAllBytes(fileName);
             Assert.IsTrue(SHA256Utils.GetBytesValueToUpper(bytes) == hash);
         }
     }

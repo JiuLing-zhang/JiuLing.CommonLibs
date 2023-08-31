@@ -52,23 +52,22 @@ namespace JiuLing.CommonLibs.Text
         /// <summary>
         /// 时间戳转为DateTime
         /// </summary>
-        /// <param name="timeStamp">时间戳，支持10位、13位两种格式</param>
+        /// <param name="timestamp">时间戳，支持10位、13位两种格式</param>
         /// <returns></returns>
-        public static DateTime ConvertToDateTime(Int64 timeStamp)
+        public static DateTime ConvertToDateTime(Int64 timestamp)
         {
-            DateTimeOffset dateTimeOffset;
-            switch (timeStamp.ToString().Length)
-            {
-                case 10:
-                    dateTimeOffset = DateTimeOffset.FromUnixTimeSeconds(timeStamp);
-                    return dateTimeOffset.ToLocalTime().DateTime;
-                case 13:
-                    dateTimeOffset = DateTimeOffset.FromUnixTimeMilliseconds(timeStamp);
-                    return dateTimeOffset.ToLocalTime().DateTime;
-                default:
-                    throw new ArgumentException("时间戳格式不正确");
-            }
+            bool is13Digits = timestamp.ToString().Length == 13;
 
+            if (is13Digits)
+            {
+                var dateTimeOffset = DateTimeOffset.FromUnixTimeMilliseconds(timestamp);
+                return dateTimeOffset.ToLocalTime().DateTime;
+            }
+            else
+            {
+                var dateTimeOffset = DateTimeOffset.FromUnixTimeSeconds(timestamp);
+                return dateTimeOffset.ToLocalTime().DateTime;
+            }
         }
     }
 }

@@ -21,18 +21,18 @@ namespace JiuLing.CommonLibs.ExtensionMethods.Tests
         {
             var list = new List<Model>
             {
-                new()
+                new Model()
                 {
                     A = "a1",
                     B = "b1"
                 },
-                new()
+                new Model()
                 {
                     A = "a2",
                     B = "b2"
                 }
                 ,
-                new()
+                new Model()
                 {
                     A = "a3",
                     B = "b3"

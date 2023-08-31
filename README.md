@@ -21,6 +21,7 @@
 
 ## 支持的 `.NET` 平台：  
 
+* `netframework 4.7`
 * `netstandard2.0`
 * `netstandard2.1`
 * `net5.0`
