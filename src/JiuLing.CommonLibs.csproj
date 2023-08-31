@@ -30,6 +30,12 @@
 		<PackageReference Include="System.Net.Http" Version="4.3.4" />
 		<Reference Include="System.Web" />
 	</ItemGroup>
+
+	<ItemGroup>
+	  <Compile Remove="Random\**" />
+	  <EmbeddedResource Remove="Random\**" />
+	  <None Remove="Random\**" />
+	</ItemGroup>
 	
 	<ItemGroup>
 		<None Include="..\nuget_icon.png">
