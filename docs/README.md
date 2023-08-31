@@ -566,6 +566,29 @@ ThreadUtils.SleepRandomMillisecond(2000, 5000);
 
 # 根命名空间  
 
+## `CommandLineArgsHelper` 类  
+命令行参数解析工具。  
+
+```C#
+//实例化工具类，并且通过 Environment.GetCommandLineArgs() 获取启动参数
+var helper = new CommandLineArgsHelper();
+//通过指定的参数集合实例化工具类
+var helper = new CommandLineArgsHelper(string[] args);
+var helper = new CommandLineArgsHelper(string args);
+
+//判断是否包含指定参数
+bool HasCommand(string key);
+helper.HasCommand("-t");
+
+//获取指定参数名的参数值
+List<string> GetCommandValue(string key);
+var args = helper.HasCommand("-t");
+
+//尝试获取指定参数名的参数值，并返回是否获取成功
+bool TryGetCommandValue(string key, out List<string> value);
+var result = helper.HasCommand("-t", out args);
+```
+
 ## `GuidUtils` 类  
 Guid 帮助类。  
   
