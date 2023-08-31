@@ -120,7 +120,7 @@ namespace JiuLing.CommonLibs.Security
         /// <returns>返回字节数组的SHA1值</returns>
         /// <exception cref="FileNotFoundException"></exception>
         public static string GetBytesValueToUpper(byte[] buffer)
-        { 
+        {
             var byteHash = SHA1.Create().ComputeHash(buffer);
 
             string tmpValue = "";
