@@ -1,5 +1,4 @@
-﻿#if NET6_0_OR_GREATER
-using System.Text.Json;
+﻿using System.Text.Json;
 
 namespace JiuLing.CommonLibs.ExtensionMethods
 {
@@ -19,7 +18,7 @@ namespace JiuLing.CommonLibs.ExtensionMethods
         /// <typeparam name="T">类型</typeparam>
         /// <param name="json">输入字符串</param>
         /// <returns>转换后的 Json 对象</returns>
-        public static T? ToObject<T>(this string json)
+        public static T ToObject<T>(this string json)
         {
             return ToObject<T>(json, DefaultOptions);
         }
@@ -31,7 +30,7 @@ namespace JiuLing.CommonLibs.ExtensionMethods
         /// <param name="json">输入字符串</param>
         /// <param name="options">JsonSerializerOptions</param>
         /// <returns>转换后的 Json 对象</returns>
-        public static T? ToObject<T>(this string json, JsonSerializerOptions options)
+        public static T ToObject<T>(this string json, JsonSerializerOptions options)
         {
             return JsonSerializer.Deserialize<T>(json, options);
         }
@@ -41,7 +40,7 @@ namespace JiuLing.CommonLibs.ExtensionMethods
         /// </summary>
         /// <param name="value">Json 对象</param>
         /// <returns>转换后的字符串</returns>
-        public static string ToJson(this object value)
+        public static string ToJson<T>(this T value)
         {
             return ToJson(value, DefaultOptions);
         }
@@ -52,10 +51,9 @@ namespace JiuLing.CommonLibs.ExtensionMethods
         /// <param name="value">Json 对象</param>
         /// <param name="options">JsonSerializerOptions</param>
         /// <returns>转换后的字符串</returns>
-        public static string ToJson(this object value, JsonSerializerOptions options)
+        public static string ToJson<T>(this T value, JsonSerializerOptions options)
         {
             return JsonSerializer.Serialize(value, options);
         }
     }
 }
-#endif

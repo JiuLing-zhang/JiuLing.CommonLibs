@@ -1,6 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk">
 	<PropertyGroup>
-		<TargetFrameworks>net47;netstandard2.0;netstandard2.1;net5.0;net6.0;net7.0</TargetFrameworks>
+		<TargetFrameworks>netstandard2.0;net5.0;net6.0;net7.0</TargetFrameworks>
 		<Description>一个通用类库。目前包含的功能有：Dictionary对象对比工具、枚举描述、字符串扩展、日志、通用模型、Cookie工具、网络请求工具、操作系统版本帮助类、随机数、MD5、SHA1、正则表达式、时间戳、线程帮助类、Guid帮助类、程序版本帮助类、命令行参数解析工具。</Description>
 		<Authors>九零</Authors>
 		<PackageRequireLicenseAcceptance>False</PackageRequireLicenseAcceptance>
@@ -26,15 +26,8 @@
 
 	</PropertyGroup>
 
-	<ItemGroup Condition="'$(TargetFramework)' == 'net47'">
-		<PackageReference Include="System.Net.Http" Version="4.3.4" />
-		<Reference Include="System.Web" />
-	</ItemGroup>
-
-	<ItemGroup>
-	  <Compile Remove="Random\**" />
-	  <EmbeddedResource Remove="Random\**" />
-	  <None Remove="Random\**" />
+	<ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
+		<PackageReference Include="System.Text.Json" Version="7.0.0" />
 	</ItemGroup>
 	
 	<ItemGroup>

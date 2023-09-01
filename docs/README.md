@@ -40,20 +40,18 @@ MyEnum.Three.GetDescription();
 ```
 
 ## `JsonExtension` 类  
-Json 的一些扩展方法。  
-由于在非 MVC 项目中，System.Text.Json 的 json 操作无法支持设置通用 JsonSerializerOptions，因此扩展一下。  
-
-**仅支持 `.NET 6，using System.Text.Json`**  
+`Json` 的一些扩展方法，基于 `System.Text.Json` 实现。  
+由于在非 `MVC` 项目中，`json` 操作无法支持设置通用 `JsonSerializerOptions`，因此扩展一下。  
 
 ```C#
 //设置通用 JsonSerializerOptions
 JsonExtension.DefaultOptions = new JsonSerializerOptions();
 
 //String to model
-public static T? ToObject<T>(this string json);
+public static T ToObject<T>(this string json);
 
 //Model to string
-public static string ToJson(this object value);
+public static string ToJson<T>(this T value);
 ```
 
 ## `ListExtendTools` 类  
