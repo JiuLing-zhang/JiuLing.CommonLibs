@@ -5,7 +5,7 @@ namespace JiuLing.CommonLibs.Net
     /// <summary>
     /// 浏览器的默认Request headers (数据版本：2022-07-13)
     /// </summary>
-    public class BrowserDefaultHeader
+    public static class BrowserDefaultHeader
     {
         /// <summary>
         /// Edge的 User-Agent参数

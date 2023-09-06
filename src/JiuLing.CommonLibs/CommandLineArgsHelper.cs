@@ -77,8 +77,7 @@ namespace JiuLing.CommonLibs
         /// <returns></returns>
         public List<string> GetCommandValue(string key)
         {
-            List<string> value;
-            _args.TryGetValue(key, out value);
+            _args.TryGetValue(key, out var value);
             return value;
         }
 

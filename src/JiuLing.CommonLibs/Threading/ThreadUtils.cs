@@ -1,13 +1,14 @@
-﻿using System.Threading;
+﻿using System;
+using System.Threading;
 
 namespace JiuLing.CommonLibs.Threading
 {
     /// <summary>
     /// 线程相关的帮助类
     /// </summary>
-    public class ThreadUtils
+    public static class ThreadUtils
     {
-        private static readonly System.Random MyRandom = new System.Random();
+        private static readonly Random MyRandom = new Random();
 
         /// <summary>
         /// 将当前线程挂起指定的秒数。

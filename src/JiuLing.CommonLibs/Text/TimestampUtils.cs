@@ -5,7 +5,7 @@ namespace JiuLing.CommonLibs.Text
     /// <summary>
     /// 时间戳帮助类
     /// </summary>
-    public class TimestampUtils
+    public static class TimestampUtils
     {
         /// <summary>
         /// 获取一个10位的时间戳

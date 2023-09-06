@@ -1,13 +1,14 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace JiuLing.CommonLibs
 {
     /// <summary>
     /// 随机数帮助类
     /// </summary>
-    public class RandomUtils
+    public static class RandomUtils
     {
-        private static readonly System.Random MyRandom = new System.Random();
+        private static readonly Random MyRandom = new Random();
 
         /// <summary>
         /// 获取一个指定长度的随机数

@@ -7,7 +7,7 @@ namespace JiuLing.CommonLibs.Security
     /// <summary>
     /// SHA1的帮助类
     /// </summary>
-    public class SHA1Utils
+    public static class SHA1Utils
     {
         /// <summary>
         /// 编码格式

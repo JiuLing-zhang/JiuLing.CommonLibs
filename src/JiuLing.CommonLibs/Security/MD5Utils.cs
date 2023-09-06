@@ -8,7 +8,7 @@ namespace JiuLing.CommonLibs.Security
     /// <summary>
     /// MD5的帮助类
     /// </summary>
-    public class MD5Utils
+    public static class MD5Utils
     {
         /// <summary>
         /// 编码格式
@@ -32,16 +32,17 @@ namespace JiuLing.CommonLibs.Security
         /// <returns>返回字符串的MD5值</returns>
         public static string GetStringValueToUpper(string input)
         {
-            var md5 = new MD5CryptoServiceProvider();
             var byteValue = DefaultEncoding.GetBytes(input);
-            var byteHash = md5.ComputeHash(byteValue);
-            md5.Clear();
-            string tmpValue = "";
-            for (int i = 0; i < byteHash.Length; i++)
+            using (var md5Instance = MD5.Create())
             {
-                tmpValue += byteHash[i].ToString("X").PadLeft(2, '0');
+                var byteHash = md5Instance.ComputeHash(byteValue);
+                string tmpValue = "";
+                for (int i = 0; i < byteHash.Length; i++)
+                {
+                    tmpValue += byteHash[i].ToString("X").PadLeft(2, '0');
+                }
+                return tmpValue;
             }
-            return tmpValue;
         }
 
         /// <summary>

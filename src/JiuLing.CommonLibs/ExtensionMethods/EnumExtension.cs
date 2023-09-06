@@ -27,6 +27,10 @@ namespace JiuLing.CommonLibs.ExtensionMethods
                 return input.ToString();
             }
             DescriptionAttribute attribute = field.GetCustomAttribute<DescriptionAttribute>();
+            if (attribute == null)
+            {
+                throw new ArgumentNullException(nameof(DescriptionAttribute), "未配置描述值");
+            }
             return attribute.Description;
         }
     }

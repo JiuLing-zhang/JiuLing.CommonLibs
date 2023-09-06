@@ -18,7 +18,7 @@ namespace JiuLing.CommonLibs.Threading
         /// <exception cref="ArgumentException"></exception>
         public static bool IsRerun(string appName, bool globalSession = true)
         {
-            if (appName.IndexOf("\\") >= 0)
+            if (appName.Contains("\\"))
             {
                 throw new ArgumentException("AppName不能包含关键字\\");
             }

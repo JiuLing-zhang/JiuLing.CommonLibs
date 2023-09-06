@@ -3,7 +3,7 @@
     /// <summary>
     /// 日志管理
     /// </summary>
-    public class LogManager
+    public static class LogManager
     {
         private static ILogger _logger;
         private static readonly object LockLogger = new object();

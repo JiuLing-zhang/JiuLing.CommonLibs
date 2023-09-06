@@ -5,7 +5,7 @@ namespace JiuLing.CommonLibs
     /// <summary>
     /// 程序版本帮助类
     /// </summary>
-    public class VersionUtils
+    public static class VersionUtils
     {
         /// <summary>
         /// 检查当前版本是否需要更新

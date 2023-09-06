@@ -11,7 +11,7 @@ namespace JiuLing.CommonLibs
     /// </summary>
     public class TempIdGenerator
     {
-        private static readonly System.Random MyRandom = new System.Random();
+        private static readonly Random MyRandom = new Random();
         private readonly SpinLock _spinLock = new SpinLock();
         private readonly List<TempId> _ids;
 

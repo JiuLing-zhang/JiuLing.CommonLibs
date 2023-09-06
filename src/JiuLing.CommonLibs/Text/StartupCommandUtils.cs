@@ -8,7 +8,7 @@ namespace JiuLing.CommonLibs.Text
     /// <summary>
     /// 启动参数解析工具类
     /// </summary>
-    public class StartupCommandUtils
+    public static class StartupCommandUtils
     {
         private static string _input;
         private static Hashtable _result;

@@ -8,7 +8,7 @@ namespace JiuLing.CommonLibs.Security
     /// <summary>
     /// SHA256 的帮助类
     /// </summary>
-    public class SHA256Utils
+    public static class SHA256Utils
     {
         /// <summary>
         /// 编码格式

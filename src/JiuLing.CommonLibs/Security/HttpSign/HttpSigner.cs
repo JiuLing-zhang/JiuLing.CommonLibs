@@ -30,7 +30,7 @@ namespace JiuLing.CommonLibs.Security.HttpSign
             setting?.Invoke(_setting);
             if (_setting == null)
             {
-                throw new ArgumentNullException("无效的签名配置", "setting");
+                throw new ArgumentNullException(nameof(setting), "无效的签名配置");
             }
 
             if (signSource == null || signSource.Count == 0)

@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Text.RegularExpressions;
 
 namespace JiuLing.CommonLibs.Text
@@ -7,7 +6,7 @@ namespace JiuLing.CommonLibs.Text
     /// <summary>
     /// 正则表达式工具类
     /// </summary>
-    public class RegexUtils
+    public static class RegexUtils
     {
         /// <summary>
         /// 指示所指定的正则表达式在指定的输入字符串中是否找到了匹配项。

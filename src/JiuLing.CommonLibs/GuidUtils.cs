@@ -2,11 +2,10 @@
 
 namespace JiuLing.CommonLibs
 {
-
     /// <summary>
     /// Guid工具类
     /// </summary>
-    public class GuidUtils
+    public static class GuidUtils
     {
         /// <summary>
         /// 获取一个Guid，格式：9af7f46a-ea52-4aa3-b8c3-9fd484c2af12

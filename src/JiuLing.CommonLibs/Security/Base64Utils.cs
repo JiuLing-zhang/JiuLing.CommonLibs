@@ -6,23 +6,12 @@ namespace JiuLing.CommonLibs.Security
     /// <summary>
     /// Base64的工具类
     /// </summary>
-    public class Base64Utils
+    public static class Base64Utils
     {
         /// <summary>
         /// 编码格式
         /// </summary>
         public static Encoding DefaultEncoding = Encoding.UTF8;
-
-        /// <summary>
-        /// 获取字符串的Base64
-        /// </summary>
-        /// <param name="input">输入字符串</param>
-        /// <returns>返回字符串的Base64值</returns>
-        [Obsolete("该方法将在1.6版本中删除，请改用StringToBase64方法。")]
-        public static string GetStringValue(string input)
-        {
-            return StringToBase64(input);
-        }
 
         /// <summary>
         /// 根据Base64值返回原始字符串
