@@ -30,7 +30,7 @@ jobs:
           7.0.x
 
     - name: Restore dependencies
-      run: dotnet restore
+      run: dotnet restore .\src\JiuLing.CommonLibs.sln
 
     - name: Build
-      run: dotnet build --no-restore
+      run: dotnet build .\src\JiuLing.CommonLibs.sln --no-restore

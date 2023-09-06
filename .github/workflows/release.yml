@@ -23,13 +23,13 @@ jobs:
             7.0.x
 
       - name: Restore dependencies
-        run: dotnet restore
+        run: dotnet restore .\src\JiuLing.CommonLibs.sln
 
       - name: Build
-        run: dotnet build --no-restore -c release
+        run: dotnet build .\src\JiuLing.CommonLibs.sln --no-restore -c release
 
       - name: Test
-        run: dotnet test
+        run: dotnet test .\src\JiuLing.CommonLibs.sln
 
       - name: Get version
         uses: olegtarasov/get-tag@v2.1
@@ -38,7 +38,7 @@ jobs:
       - name: Create zip
         shell: pwsh
         # 配置【编译后的文件地址】
-        run: Compress-Archive -Path .\src\bin\Release\* -DestinationPath .\src\bin\Release\JiuLing.CommonLibs_${{ steps.tagName.outputs.tag }}.zip
+        run: Compress-Archive -Path .\src\JiuLing.CommonLibs\bin\Release\* -DestinationPath .\src\JiuLing.CommonLibs\bin\Release\JiuLing.CommonLibs_${{ steps.tagName.outputs.tag }}.zip
 
       - name: Release
         uses: softprops/action-gh-release@v1
@@ -48,12 +48,12 @@ jobs:
           body: |
             Release为自动生成，具体内容请查看提交日志，或直接查看[README](https://github.com/JiuLing-zhang/JiuLing.CommonLibs#readme)
           # 配置【zip文件地址】
-          files: .\src\bin\Release\JiuLing.CommonLibs_${{ steps.tagName.outputs.tag }}.zip
+          files: .\src\JiuLing.CommonLibs\bin\Release\JiuLing.CommonLibs_${{ steps.tagName.outputs.tag }}.zip
 
       - name: Publish  
         uses: brandedoutcast/publish-nuget@v2.5.2  
         with:   
-          PROJECT_FILE_PATH: src/JiuLing.CommonLibs.csproj  
+          PROJECT_FILE_PATH: src/JiuLing.CommonLibs/JiuLing.CommonLibs.csproj  
           NUGET_KEY: ${{secrets.NUGET_API_KEY}} 
           TAG_COMMIT: false
           INCLUDE_SYMBOLS: true
