@@ -1,7 +1,6 @@
 <div align="center">
 
 ![License Badge](https://img.shields.io/github/license/JiuLing-zhang/JiuLing.CommonLibs)
-![Build Badge](https://github.com/JiuLing-zhang/JiuLing.CommonLibs/workflows/Build/badge.svg)
 ![Test Badge](https://github.com/JiuLing-zhang/JiuLing.CommonLibs/workflows/Test/badge.svg)
 [![NuGet Badge](https://buildstats.info/nuget/JiuLing.CommonLibs)](https://www.nuget.org/packages/JiuLing.CommonLibs/)
 [![Releases Badge](https://img.shields.io/github/v/release/JiuLing-zhang/JiuLing.CommonLibs)](https://github.com/JiuLing-zhang/JiuLing.CommonLibs/releases)
