@@ -1,12 +1,7 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using JiuLing.CommonLibs;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace JiuLing.CommonLibs.Tests
+namespace JiuLing.CommonLibs.UnitTests
 {
     [TestClass()]
     public class VersionUtilsTests

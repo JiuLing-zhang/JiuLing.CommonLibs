@@ -1,8 +1,9 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
+using JiuLing.CommonLibs.Middleware;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace JiuLing.CommonLibs.Middleware.Tests
+namespace JiuLing.CommonLibs.UnitTests.Middleware
 {
     [TestClass()]
     public class MiddlewareBuilderTests
@@ -10,7 +11,7 @@ namespace JiuLing.CommonLibs.Middleware.Tests
         [TestMethod()]
         public void ExecuteAsyncTest()
         {
-            var builder = Middleware.CreateBuilder<List<int>>();
+            var builder = CommonLibs.Middleware.Middleware.CreateBuilder<List<int>>();
             builder
                 .Use(new MiddlewareAsyncTest1())
                 .Use(new MiddlewareAsyncTest2())

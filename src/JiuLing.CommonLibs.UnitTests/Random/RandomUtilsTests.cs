@@ -1,13 +1,8 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using JiuLing.CommonLibs.Random;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using JiuLing.CommonLibs.ExtensionMethods;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace JiuLing.CommonLibs.Random.Tests
+namespace JiuLing.CommonLibs.UnitTests.Random
 {
     [TestClass()]
     public class RandomUtilsTests

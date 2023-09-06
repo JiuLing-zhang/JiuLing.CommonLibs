@@ -1,24 +1,11 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using JiuLing.CommonLibs.Security;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using JiuLing.CommonLibs.Security;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace JiuLing.CommonLibs.Security.Tests
+namespace JiuLing.CommonLibs.UnitTests.Security
 {
     [TestClass()]
     public class Base64UtilsTests
     {
-        [TestMethod()]
-        [DataRow("test", "dGVzdA==")]
-        [DataRow("test one", "dGVzdCBvbmU=")]
-        public void GetStringValueTest(string input, string base64)
-        {
-            Assert.IsTrue(Base64Utils.GetStringValue(input) == base64);
-        }
-
         [TestMethod()]
         [DataRow("test", "dGVzdA==")]
         [DataRow("test one", "dGVzdCBvbmU=")]

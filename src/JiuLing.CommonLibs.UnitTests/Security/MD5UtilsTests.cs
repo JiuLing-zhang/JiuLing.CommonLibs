@@ -1,13 +1,9 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using JiuLing.CommonLibs.Security;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using JiuLing.CommonLibs.Security;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace JiuLing.CommonLibs.Security.Tests
+namespace JiuLing.CommonLibs.UnitTests.Security
 {
     [TestClass()]
     public class MD5UtilsTests

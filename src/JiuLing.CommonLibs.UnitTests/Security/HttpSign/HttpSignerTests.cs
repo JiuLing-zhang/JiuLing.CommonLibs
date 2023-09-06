@@ -1,7 +1,8 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using JiuLing.CommonLibs.Security.HttpSign;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace JiuLing.CommonLibs.Security.HttpSign.Tests
+namespace JiuLing.CommonLibs.UnitTests.Security.HttpSign
 {
     [TestClass()]
     public class HttpSignerTests

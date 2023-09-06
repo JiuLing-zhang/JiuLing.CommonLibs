@@ -1,8 +1,9 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
+using JiuLing.CommonLibs.Threading;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace JiuLing.CommonLibs.Threading.Tests
+namespace JiuLing.CommonLibs.UnitTests.Threading
 {
     [TestClass()]
     public class SpinLockTests

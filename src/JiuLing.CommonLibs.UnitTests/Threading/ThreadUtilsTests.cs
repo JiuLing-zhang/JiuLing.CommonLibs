@@ -1,13 +1,8 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using System.Diagnostics;
 using JiuLing.CommonLibs.Threading;
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace JiuLing.CommonLibs.Threading.Tests
+namespace JiuLing.CommonLibs.UnitTests.Threading
 {
     [TestClass()]
     public class ThreadUtilsTests

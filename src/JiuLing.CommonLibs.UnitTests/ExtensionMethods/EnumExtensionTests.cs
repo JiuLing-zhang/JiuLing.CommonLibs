@@ -1,13 +1,9 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using System;
 using JiuLing.CommonLibs.ExtensionMethods;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using DescriptionAttribute = System.ComponentModel.DescriptionAttribute;
 
-namespace JiuLing.CommonLibs.ExtensionMethods.Tests
+namespace JiuLing.CommonLibs.UnitTests.ExtensionMethods
 {
     [TestClass()]
     public class EnumExtensionTests

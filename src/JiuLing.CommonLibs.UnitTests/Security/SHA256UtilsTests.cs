@@ -1,9 +1,9 @@
-﻿using JiuLing.CommonLibs.Security;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
+﻿using System;
 using System.IO;
+using JiuLing.CommonLibs.Security;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace JiuLing.CommonLibs.Security.Tests
+namespace JiuLing.CommonLibs.UnitTests.Security
 {
     [TestClass()]
     public class SHA256UtilsTests

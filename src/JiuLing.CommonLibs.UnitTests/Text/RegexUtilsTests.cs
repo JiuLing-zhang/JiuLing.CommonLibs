@@ -1,9 +1,9 @@
-﻿using JiuLing.CommonLibs.Text;
-using System.Collections.Generic;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using System.Collections.Generic;
 using System.Linq;
+using JiuLing.CommonLibs.Text;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace JiuLing.CommonLibs.Text.Tests
+namespace JiuLing.CommonLibs.UnitTests.Text
 {
     [TestClass()]
     public class RegexUtilsTests

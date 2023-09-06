@@ -1,12 +1,8 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using System;
 using JiuLing.CommonLibs.Text;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace JiuLing.CommonLibs.Text.Tests
+namespace JiuLing.CommonLibs.UnitTests.Text
 {
     [TestClass()]
     public class TimestampUtilsTests

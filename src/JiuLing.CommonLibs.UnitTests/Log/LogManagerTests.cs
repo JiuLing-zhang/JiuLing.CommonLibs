@@ -1,12 +1,7 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using JiuLing.CommonLibs.Log;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using JiuLing.CommonLibs.Log;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace JiuLing.CommonLibs.Log.Tests
+namespace JiuLing.CommonLibs.UnitTests.Log
 {
     [TestClass()]
     public class LogManagerTests
