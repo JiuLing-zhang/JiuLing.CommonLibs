@@ -7,13 +7,13 @@ namespace JiuLing.CommonLibs.UnitTests.Security.HttpSign
     [TestClass()]
     public class HttpSignerTests
     {
-        private Dictionary<string, string> _signSource = new Dictionary<string, string>()
+        private readonly Dictionary<string, string> _signSource = new Dictionary<string, string>()
         {
             { "param1", "1" },
             { "param3", "3+" },
             { "param2", "2" }
         };
-        private HttpSigner _signer = null;
+        private HttpSigner _signer;
 
         [TestMethod()]
         public void SetSignDataTest()

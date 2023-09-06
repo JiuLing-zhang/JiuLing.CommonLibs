@@ -119,7 +119,6 @@ namespace JiuLing.CommonLibs.UnitTests.Text
             //无分组
             string input = "name:jiuling;age:0;";
             string pattern = @"name:\w*;";
-            List<string> groupNames = new List<string>() { "name" };
             bool realSuccess;
             (realSuccess, _) = RegexUtils.GetMultiGroupInFirstMatch(input, pattern);
             Assert.IsFalse(realSuccess);
@@ -127,7 +126,6 @@ namespace JiuLing.CommonLibs.UnitTests.Text
             //一个分组
             input = "name:jiuling;age:0;";
             pattern = @"name:(?<name>\w*);";
-            groupNames = new List<string>() { "name" };
 
             IDictionary<string, string> realResult;
             (realSuccess, realResult) = RegexUtils.GetMultiGroupInFirstMatch(input, pattern);
@@ -136,7 +134,6 @@ namespace JiuLing.CommonLibs.UnitTests.Text
             //多个分组
             input = "name:jiuling;age:0;";
             pattern = @"name:(?<name>\w*);age:(?<age>\w*);";
-            groupNames = new List<string>() { "name", "age" };
             (realSuccess, realResult) = RegexUtils.GetMultiGroupInFirstMatch(input, pattern);
             Assert.IsTrue(realSuccess && realResult["name"] == "jiuling" && realResult["age"] == "0");
         }

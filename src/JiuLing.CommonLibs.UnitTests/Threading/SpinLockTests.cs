@@ -26,19 +26,19 @@ namespace JiuLing.CommonLibs.UnitTests.Threading
         {
             var spinLock = new SpinLock();
 
-            int _count = 0;
+            int count = 0;
             var tasks = new List<Task>();
             for (int i = 0; i < 2000; i++)
             {
                 tasks.Add(Task.Factory.StartNew(() =>
                 {
                     spinLock.Enter();
-                    _count = _count + 1;
+                    count = count + 1;
                     spinLock.Exit();
                 }));
             }
             Task.WaitAll(tasks.ToArray());
-            Assert.AreEqual(tasks.Count, _count);
+            Assert.AreEqual(tasks.Count, count);
         }
     }
 }

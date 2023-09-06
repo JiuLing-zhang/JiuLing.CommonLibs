@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace JiuLing.CommonLibs.UnitTests
@@ -7,33 +6,33 @@ namespace JiuLing.CommonLibs.UnitTests
     [TestClass()]
     public class TempIdGeneratorTests
     {
-        private const int _minLength = 2;
-        private const int _maxLength = 6;
+        private const int MinLength = 2;
+        private const int MaxLength = 6;
 
         [TestMethod()]
         [ExpectedException(typeof(ArgumentException))]
         public void TempIdGeneratorMinValueTest()
         {
-            new TempIdGenerator(_minLength - 1);
+            new TempIdGenerator(MinLength - 1);
         }
 
         [TestMethod()]
         [ExpectedException(typeof(ArgumentException))]
         public void TempIdGeneratorMaxValueTest()
         {
-            new TempIdGenerator(_maxLength + 1);
+            new TempIdGenerator(MaxLength + 1);
         }
 
         [TestMethod()]
         public void TempIdGeneratorTest()
         {
-            new TempIdGenerator(_minLength);
-            new TempIdGenerator(_maxLength);
+            new TempIdGenerator(MinLength);
+            new TempIdGenerator(MaxLength);
             Assert.IsTrue(true);
         }
 
         [TestMethod()]
-        [DataRow(_minLength)]
+        [DataRow(MinLength)]
         public void CreateByTimeSpanTest(int idLength)
         {
             var time = DateTime.Now;
@@ -46,27 +45,22 @@ namespace JiuLing.CommonLibs.UnitTests
             var minValue = Convert.ToInt32(minString);
             var maxValue = Convert.ToInt32(maxString);
 
-            //生成的 id 集合
-            List<int> ids = new List<int>(maxValue - minValue);
             for (int i = minValue; i < maxValue; i++)
             {
                 var tempId = tempIdGenerator.Create(expiration);
                 Assert.IsFalse(tempId == 0);
-                ids.Add(tempId);
             }
 
             System.Threading.Thread.Sleep(5000);
-            ids = new List<int>(maxValue - minValue);
             for (int i = minValue; i < maxValue; i++)
             {
                 var tempId = tempIdGenerator.Create(expiration);
                 Assert.IsFalse(tempId == 0);
-                ids.Add(tempId);
             }
         }
 
         [TestMethod()]
-        [DataRow(_minLength)]
+        [DataRow(MinLength)]
         public void CreateByDateTimeTest(int idLength)
         {
             DateTime expiration = DateTime.Now.AddSeconds(5);
@@ -78,22 +72,17 @@ namespace JiuLing.CommonLibs.UnitTests
             var minValue = Convert.ToInt32(minString);
             var maxValue = Convert.ToInt32(maxString);
 
-            //生成的 id 集合
-            List<int> ids = new List<int>(maxValue - minValue);
             for (int i = minValue; i < maxValue; i++)
             {
                 var tempId = tempIdGenerator.Create(expiration);
                 Assert.IsFalse(tempId == 0);
-                ids.Add(tempId);
             }
 
             System.Threading.Thread.Sleep(5000);
-            ids = new List<int>(maxValue - minValue);
             for (int i = minValue; i < maxValue; i++)
             {
                 var tempId = tempIdGenerator.Create(expiration);
                 Assert.IsFalse(tempId == 0);
-                ids.Add(tempId);
             }
         }
     }

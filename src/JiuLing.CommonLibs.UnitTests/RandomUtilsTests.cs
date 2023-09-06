@@ -20,11 +20,11 @@ namespace JiuLing.CommonLibs.UnitTests
         public void GetOneFromListTest()
         {
             var list = new List<string>();
-            string result = RandomUtils.GetOneFromList<string>(list);
+            string result = RandomUtils.GetOneFromList(list);
             Assert.IsTrue(result.IsEmpty());
             list.Add("a");
             list.Add("b");
-            result = RandomUtils.GetOneFromList<string>(list);
+            result = RandomUtils.GetOneFromList(list);
             Assert.IsTrue(list.Contains(result));
         }
 
