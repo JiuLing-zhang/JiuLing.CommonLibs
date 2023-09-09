@@ -321,63 +321,40 @@ public enum OSVersionEnum
 # `Security` 命名空间  
 该命名空间下是一些安全相关的类。  
 
-## `HttpSigner` 类  
-常用的网络请求签名工具。  
-该类在 `JiuLing.CommonLibs.Security.HttpSign` 命名空间下。  
+## `SignatureBuilder` 类  
+签名构建工具。  
+该类在 `Security.Signature` 命名空间下。  
 
 ```C#
-//设置数据源
+
+//初始化构建器
 var signSource = new Dictionary<string, string>()
 {
     { "param1", "1" },
     { "param3", "3+" },
     { "param2", "2" }
 };
-var signer = new HttpSigner();
-signer.SetSignData(signSource);
+var builder = SignatureBuilder.Create(signSource);
+var builder = SignatureBuilder.Create("param1=1&param3=3+&param2=2");
 
-//设置数据源并配置规则
-signer.SetSignData(signSource, setting =>
-{
-    //按参数名排序
-    //result --> param1 param2 param3
-    setting.IsOrderByWithKey = false;
-
-    //是否对签名数据的参数值进行 UrlEncode
-    setting.IsDoUrlEncodeForSourceValue = false;
-
-    //签名主体是否包含参数名
-    setting.IsSignTextContainKey = true;
-    //签名主体中参数和参数值的连接符（需要启用 IsSignTextContainKey）
-    setting.SignTextKeyValueSeparator = "=";
-    //签名主体中不同参数项的连接符
-    setting.SignTextItemSeparator = "&";
-    //以上都开启后  --> param1=1&param2=2&param3=3
-
-    //编码
-    setting.DefaultEncoding = Encoding.UTF8;
-});
-
-//签名主体设置前缀
-signer.SetSignData(signSource).SetSignTextPrefix("TestPrefix");
-
-//签名主体设置后缀
-signer.SetSignData(signSource).SetSignTextSuffix("TestSuffix");
-
-//签名主体进行 Base64
-signer.SetSignData(signSource).SetSignTextBase64();
-
-//签名主体进行 MD5,(方法参数为签名结果是否转小写)
-signer.SetSignData(signSource).SetSignTextMD5(bool isToLower = true);
-
-//签名主体进行 SHA1,(方法参数为签名结果是否转小写)
-signer.SetSignData(signSource).SetSignTextSHA1(bool isToLower = true);
-
-//获取签名结果
-string signString = signer.SetSignData(signSource).GetSignResult();
-
-//链式写法
-string signString = signer.SetSignData(signSource).SetSignTextBase64().SetSignTextMD5().SetSignTextSHA1();
+//获取签名
+//链式实现，可自由组合
+var sign = builder
+            .OrderBy()//字典序
+            .FetchParameterValue()//提取参数值
+            .FetchParameterNameAndValue() //提取参数名和参数值
+            .Base64()
+            .Prefix("Prefix")//添加前缀
+            .Postfix("Postfix")//添加后缀
+            .UrlEncodeUpper()//大写编码
+            .UrlEncodeLower() //小写编码
+            .MD5()
+            .SHA1()
+            .SHA256()
+            .ToUpper()
+            .ToLower()
+            .GetResult();
+Console.WriteLine(sign);
 ```
 
 ## `MD5Utils` 类  
