@@ -7,6 +7,7 @@ namespace JiuLing.CommonLibs.Security.HttpSign
     /// <summary>
     /// 网络请求签名工具
     /// </summary>
+    [Obsolete("该功能将在 v1.7 版本中删除，请改用 Security.Signature.SignatureBuilder 实现")]
     public class HttpSigner
     {
         /// <summary>
