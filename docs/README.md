@@ -353,7 +353,7 @@ var sign = builder
             .SHA256()
             .ToUpper()
             .ToLower()
-            .GetResult();
+            .GetResult(); //获取最终的签名结果
 Console.WriteLine(sign);
 ```
 
