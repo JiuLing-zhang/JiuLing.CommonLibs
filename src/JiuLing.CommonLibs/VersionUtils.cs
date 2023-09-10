@@ -15,9 +15,28 @@ namespace JiuLing.CommonLibs
         /// <returns>返回是否需要更新</returns>
         public static bool CheckNeedUpdate(string currentVersion, string newVersion)
         {
-            Version current = new Version(currentVersion);
-            Version version = new Version(newVersion);
+            Version current = ToVersionWithBuild(currentVersion);
+            Version version = ToVersionWithBuild(newVersion);
             return CheckNeedUpdate(current, version);
+        }
+
+        private static Version ToVersionWithBuild(string versionString)
+        {
+            if (Version.TryParse(versionString, out var version))
+            {
+                var build = version.Build;
+                if (build == -1)
+                {
+                    build = 0;
+                }
+                var revision = version.Revision;
+                if (revision == -1)
+                {
+                    revision = 0;
+                }
+                version = new Version(version.Major, version.Minor, build, revision);
+            }
+            return version;
         }
 
         /// <summary>
