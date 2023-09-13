@@ -59,9 +59,9 @@ namespace JiuLing.CommonLibs
         /// <returns>返回（是否需要自动更新，当前版本是否允许使用）</returns>
         public static (bool IsNeedUpdate, bool IsAllowUse) CheckNeedUpdate(string currentVersion, string newVersion, string minVersion)
         {
-            Version current = new Version(currentVersion);
-            Version version = new Version(newVersion);
-            Version min = new Version(minVersion);
+            Version current = ToVersionWithBuild(currentVersion);
+            Version version = ToVersionWithBuild(newVersion);
+            Version min = ToVersionWithBuild(minVersion);
             return CheckNeedUpdate(current, version, min);
         }
 
@@ -84,7 +84,7 @@ namespace JiuLing.CommonLibs
                 return (true, false);
             }
 
-            return (true, true);
+            return (false, true);
         }
     }
 }
