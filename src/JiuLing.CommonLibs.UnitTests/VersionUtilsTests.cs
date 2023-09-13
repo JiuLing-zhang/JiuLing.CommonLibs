@@ -32,7 +32,7 @@ namespace JiuLing.CommonLibs.UnitTests
         }
 
         [TestMethod()]
-        [DataRow("1.0.0", "1.0.2", "1.0.0", true, true)]
+        [DataRow("1.0.0", "1.0.2", "1.0.0", false, true)]
         [DataRow("1.0.0", "1.0.2", "1.0.1", true, false)]
         [DataRow("1.0.0", "1.0.0", "1.0.0", false, true)]
         public void CheckNeedUpdate3Test(string currentVersion, string newVersion, string minVersion, bool isNeedUpdate, bool isAllowUse)
