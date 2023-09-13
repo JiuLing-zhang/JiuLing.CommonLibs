@@ -74,17 +74,20 @@ namespace JiuLing.CommonLibs
         /// <returns>返回（是否需要自动更新，当前版本是否允许使用）</returns>
         public static (bool IsNeedUpdate, bool IsAllowUse) CheckNeedUpdate(Version currentVersion, Version newVersion, Version minVersion)
         {
-            if (!CheckNeedUpdate(currentVersion, newVersion))
+            bool isNeedUpdate = CheckNeedUpdate(currentVersion, newVersion);
+            int result = currentVersion.CompareTo(minVersion);
+            if (result < 0)
             {
-                return (false, true);
+                return (isNeedUpdate, false);
             }
-
-            if (currentVersion.CompareTo(minVersion) < 0)
+            else if (result == 0)
             {
-                return (true, false);
+                return (isNeedUpdate, true);
             }
-
-            return (false, true);
+            else
+            {
+                return (isNeedUpdate, true);
+            }
         }
     }
 }
