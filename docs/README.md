@@ -70,6 +70,8 @@ a.ToDataTable();
 ```C#
 "abc".IsEmpty();  //字符串是否为空
 "abc".IsNotEmpty();  //字符串是否不为空
+"abc".IsTrimEmpty();  //Trim 后的字符串是否为空
+"abc".IsNotTrimEmpty();  //Trim 后的字符串是否不为空
 "https://jiuling.me".ToUri();  //将字符串转为 Uri 对象
 ```
 
