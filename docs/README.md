@@ -17,6 +17,38 @@ y.Add("a1", "b1");
 Assert.IsTrue(_myComparer.Equals(x, y));
 ```
 
+# `Enums` 命名空间  
+常用的一些枚举定义。  
+
+## `VersionFormatEnum` 枚举  
+版本号展示格式。  
+
+```C#
+public enum VersionFormatEnum
+{
+    /// <summary>
+    /// 主版本（1）
+    /// 例如：1
+    /// </summary>
+    Major = 1,
+    /// <summary>
+    /// 主版本.次版本
+    /// 例如：1.2
+    /// </summary>
+    MajorMinor = 2,
+    /// <summary>
+    /// 主版本.次版本.构建版本
+    /// 例如：1.2.3
+    /// </summary>
+    MajorMinorBuild = 3,
+    /// <summary>
+    /// 主版本.次版本.构建版本.修订版本
+    /// 例如：1.2.3.4
+    /// </summary>
+    MajorMinorBuildRevision = 4
+}
+```
+
 # `ExtensionMethods` 命名空间  
 该命名空间下是一些通用的扩展方法。  
 
@@ -73,6 +105,16 @@ a.ToDataTable();
 "abc".IsTrimEmpty();  //Trim 后的字符串是否为空
 "abc".IsNotTrimEmpty();  //Trim 后的字符串是否不为空
 "https://jiuling.me".ToUri();  //将字符串转为 Uri 对象
+```
+
+## `VersionExtension` 类  
+版本号的扩展方法。  
+
+```C#
+(new Version("1.2.3.4")).ToFormatString(VersionFormatEnum.Major);  // 结果为字符串 "1"
+(new Version("1.2.3.4")).ToFormatString(VersionFormatEnum.MajorMinor);  // 结果为字符串 "1.2"
+(new Version("1.2.3.4")).ToFormatString(VersionFormatEnum.MajorMinorBuild);  // 结果为字符串 "1.2.3"
+(new Version("1.2.3.4")).ToFormatString(VersionFormatEnum.MajorMinorBuildRevision);  // 结果为字符串 "1.2.3.4"
 ```
 
 # `Log` 命名空间  
