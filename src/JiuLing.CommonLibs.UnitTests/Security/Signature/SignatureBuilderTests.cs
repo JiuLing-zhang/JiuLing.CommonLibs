@@ -111,7 +111,7 @@ namespace JiuLing.CommonLibs.UnitTests.Security.Signature
         }
 
         [TestMethod()]
-        [DataRow("", "")]
+        [DataRow("", "d41d8cd98f00b204e9800998ecf8427e")]
         [DataRow("test1=1&test2=2", "ee2511b7137adee95204899d1855eb3f")]
         public void MD5Test(string input, string result)
         {
@@ -120,7 +120,7 @@ namespace JiuLing.CommonLibs.UnitTests.Security.Signature
         }
 
         [TestMethod()]
-        [DataRow("", "")]
+        [DataRow("", "da39a3ee5e6b4b0d3255bfef95601890afd80709")]
         [DataRow("test1=1&test2=2", "e4e44e7539fff69b6fb984ef206aedaf9b3c650f")]
         public void SHA1Test(string input, string result)
         {
@@ -129,7 +129,7 @@ namespace JiuLing.CommonLibs.UnitTests.Security.Signature
         }
 
         [TestMethod()]
-        [DataRow("", "")]
+        [DataRow("", "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855")]
         [DataRow("test1=1&test2=2", "8ebc3e5c2302d3500e7a7e1dcb5e9ff65d1b0c304133cca9cb656e8f67275a9e")]
         public void SHA256Test(string input, string result)
         {
