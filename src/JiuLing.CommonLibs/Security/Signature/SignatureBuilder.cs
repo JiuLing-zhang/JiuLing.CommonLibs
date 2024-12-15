@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using JiuLing.CommonLibs.ExtensionMethods;
+using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Web;
@@ -63,6 +64,10 @@ namespace JiuLing.CommonLibs.Security.Signature
         /// <returns></returns>
         public SignatureBuilder FetchParameterValue(string separator = "&")
         {
+            if (_signValue.IsEmpty())
+            {
+                return this;
+            }
             var parameterKeyValueList = _signValue.Split('&').ToList();
             var parameterValueList = parameterKeyValueList.Select(x => x.Split('=')[1]).ToList();
             _signValue = string.Join(separator, parameterValueList);
@@ -76,6 +81,10 @@ namespace JiuLing.CommonLibs.Security.Signature
         /// <returns></returns>
         public SignatureBuilder FetchParameterNameAndValue(string separator = "")
         {
+            if (_signValue.IsEmpty())
+            {
+                return this;
+            }
             var parameterKeyValueList = _signValue.Split('&').ToList();
             parameterKeyValueList = parameterKeyValueList.Select(x => x.Replace("=", "")).ToList();
             _signValue = string.Join(separator, parameterKeyValueList);
