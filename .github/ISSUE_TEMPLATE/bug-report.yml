@@ -35,10 +35,5 @@ body:
     attributes:
       label: 程序版本
       description: 错误出现在哪个版本中。
-      options:
-        - 1.4.2
-        - 1.4.1
-        - 1.4.0
-        - 更早
     validations:
       required: true
