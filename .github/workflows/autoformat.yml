@@ -1,5 +1,11 @@
 name: Format check on push
-on: push
+on:
+  push:
+    branches: [ main ]
+    paths-ignore:
+    - 'README.md'
+    - '.github/**'
+    - 'docs/**'
 jobs:
   dotnet-format:
     runs-on: windows-latest
