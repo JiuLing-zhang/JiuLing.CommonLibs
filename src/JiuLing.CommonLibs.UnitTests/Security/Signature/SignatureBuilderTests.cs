@@ -35,6 +35,7 @@ namespace JiuLing.CommonLibs.UnitTests.Security.Signature
         }
 
         [TestMethod()]
+        [DataRow("", "")]
         [DataRow("param1=1&param3=3&param2=2", "1&3&2")]
         public void FetchParameterValueTest1(string input, string result)
         {
@@ -43,6 +44,7 @@ namespace JiuLing.CommonLibs.UnitTests.Security.Signature
         }
 
         [TestMethod()]
+        [DataRow("", "", "")]
         [DataRow("param1=1&param3=3&param2=2", "", "132")]
         [DataRow("param1=1&param3=3&param2=2", "&", "1&3&2")]
         public void FetchParameterValueTest2(string input, string separator, string result)
@@ -52,6 +54,7 @@ namespace JiuLing.CommonLibs.UnitTests.Security.Signature
         }
 
         [TestMethod()]
+        [DataRow("", "")]
         [DataRow("param1=1&param3=3&param2=2", "param11param33param22")]
         public void FetchParameterNameAndValueTest1(string input, string result)
         {
@@ -60,6 +63,7 @@ namespace JiuLing.CommonLibs.UnitTests.Security.Signature
         }
 
         [TestMethod()]
+        [DataRow("", "", "")]
         [DataRow("param1=1&param3=3&param2=2", "", "param11param33param22")]
         [DataRow("param1=1&param3=3&param2=2", "+", "param11+param33+param22")]
         [DataRow("param1=1&param3=3&param2=2", "&", "param11&param33&param22")]
@@ -71,6 +75,7 @@ namespace JiuLing.CommonLibs.UnitTests.Security.Signature
 
 
         [TestMethod()]
+        [DataRow("", "")]
         [DataRow("param3=3+&param1=1&param2=2", "param1=1&param2=2&param3=3+")]
         public void OrderByAsyncTest(string input, string result)
         {
@@ -79,6 +84,7 @@ namespace JiuLing.CommonLibs.UnitTests.Security.Signature
         }
 
         [TestMethod()]
+        [DataRow("", "")]
         [DataRow("test1=1&test2=2", "dGVzdDE9MSZ0ZXN0Mj0y")]
         public void Base64Test(string input, string result)
         {
@@ -87,6 +93,7 @@ namespace JiuLing.CommonLibs.UnitTests.Security.Signature
         }
 
         [TestMethod()]
+        [DataRow("", "", "")]
         [DataRow("test1=1&test2=2", "appKey", "appKeytest1=1&test2=2")]
         public void PrefixTest(string input, string prefix, string result)
         {
@@ -95,6 +102,7 @@ namespace JiuLing.CommonLibs.UnitTests.Security.Signature
         }
 
         [TestMethod()]
+        [DataRow("", "", "")]
         [DataRow("test1=1&test2=2", "appKey", "test1=1&test2=2appKey")]
         public void PostfixTest(string input, string postfix, string result)
         {
@@ -103,6 +111,7 @@ namespace JiuLing.CommonLibs.UnitTests.Security.Signature
         }
 
         [TestMethod()]
+        [DataRow("", "")]
         [DataRow("test1=1&test2=2", "ee2511b7137adee95204899d1855eb3f")]
         public void MD5Test(string input, string result)
         {
@@ -111,6 +120,7 @@ namespace JiuLing.CommonLibs.UnitTests.Security.Signature
         }
 
         [TestMethod()]
+        [DataRow("", "")]
         [DataRow("test1=1&test2=2", "e4e44e7539fff69b6fb984ef206aedaf9b3c650f")]
         public void SHA1Test(string input, string result)
         {
@@ -119,6 +129,7 @@ namespace JiuLing.CommonLibs.UnitTests.Security.Signature
         }
 
         [TestMethod()]
+        [DataRow("", "")]
         [DataRow("test1=1&test2=2", "8ebc3e5c2302d3500e7a7e1dcb5e9ff65d1b0c304133cca9cb656e8f67275a9e")]
         public void SHA256Test(string input, string result)
         {
@@ -127,6 +138,7 @@ namespace JiuLing.CommonLibs.UnitTests.Security.Signature
         }
 
         [TestMethod()]
+        [DataRow("", "")]
         [DataRow("test1=1&test2=2", "TEST1=1&TEST2=2")]
         public void ToUpperTest(string input, string result)
         {
@@ -135,6 +147,7 @@ namespace JiuLing.CommonLibs.UnitTests.Security.Signature
         }
 
         [TestMethod()]
+        [DataRow("", "")]
         [DataRow("Test1=1&Test2=2", "test1=1&test2=2")]
         public void ToLowerTest(string input, string result)
         {
@@ -143,6 +156,7 @@ namespace JiuLing.CommonLibs.UnitTests.Security.Signature
         }
 
         [TestMethod()]
+        [DataRow("", "")]
         [DataRow("param1=1&param3=3+&param2=2", "param1%3D1%26param3%3D3%2B%26param2%3D2")]
         public void UrlEncodeUpperTest(string input, string result)
         {
@@ -151,6 +165,7 @@ namespace JiuLing.CommonLibs.UnitTests.Security.Signature
         }
 
         [TestMethod()]
+        [DataRow("", "")]
         [DataRow("param1=1&param3=3+&param2=2", "param1%3d1%26param3%3d3%2b%26param2%3d2")]
         public void UrlEncodeLowerTest(string input, string result)
         {
