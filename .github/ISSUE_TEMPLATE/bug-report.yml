@@ -30,7 +30,7 @@ body:
       placeholder: 例如 Windows 10、Android 11
     validations:
       required: true
-  - type: dropdown
+  - type: input
     id: version
     attributes:
       label: 程序版本
