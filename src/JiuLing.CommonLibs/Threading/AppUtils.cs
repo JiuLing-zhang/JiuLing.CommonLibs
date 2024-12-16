@@ -10,7 +10,8 @@ namespace JiuLing.CommonLibs.Threading
     {
         private static Mutex _mutex;
         /// <summary>
-        /// 程序是否重复运行
+        /// 程序是否重复运行。        
+        /// 此方法在某些环境下可能会判断失效，请谨慎使用，并确保进行充分测试。
         /// </summary>
         /// <param name="appName">app的唯一名称</param>
         /// <param name="globalSession">是否在所有服务器会话中检查唯一</param>
