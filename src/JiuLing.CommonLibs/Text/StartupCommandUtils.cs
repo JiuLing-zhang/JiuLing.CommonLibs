@@ -8,6 +8,7 @@ namespace JiuLing.CommonLibs.Text
     /// <summary>
     /// 启动参数解析工具类
     /// </summary>
+    [Obsolete("该功能后续可能会删除，请使用 CommandLineArgsHelper 替换")]
     public static class StartupCommandUtils
     {
         private static string _input;

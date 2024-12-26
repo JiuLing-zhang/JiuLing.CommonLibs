@@ -503,33 +503,6 @@ List<string> GetOneGroupAllMatch("<div>a1</div><div>a2</div><div>a3</div>", @"<d
 //返回值 success=true,result["name"]="jiuling",result["age"]="0"
 ```
 
-## `StartupCommandUtils` 类  
-启动参数解析工具类。  
-
-检查是否包含参数。  
-
-```C#
-StartupCommandUtils.Initialize("-a test1 test2 -b");    
-bool result = StartupCommandUtils.HasCommand("-a");
-//result 的值为 True
-```
-
-获取指定参数。  
-
-```C#
-StartupCommandUtils.Initialize("-a test1 test2 -b -c test-c");
-IList<string> result = StartupCommandUtils.GetCommandValue("-a");
-//result包含"test1"和"test3"两个值
-```
-
-尝试获取指定参数
-
-```C#
-StartupCommandUtils.Initialize("-a test1 -b test");    
-bool result = StartupCommandUtils.TryGetCommandValue("-a", out args);
-//result为是否找到对应参数，args为获取到的参数值
-```
-
 ## `TimestampUtils` 类  
 时间戳相关的类。  
 
