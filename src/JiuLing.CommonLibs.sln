@@ -7,6 +7,19 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JiuLing.CommonLibs", "JiuLi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JiuLing.CommonLibs.UnitTests", "JiuLing.CommonLibs.UnitTests\JiuLing.CommonLibs.UnitTests.csproj", "{777D018D-D2EB-4CD2-852C-E737BA4A8098}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{9B8BAA0C-E678-497D-9628-2BA2CA90018D}"
+	ProjectSection(SolutionItems) = preProject
+		..\docs\CNAME = ..\docs\CNAME
+		..\docs\footer.md = ..\docs\footer.md
+		..\docs\index.html = ..\docs\index.html
+		..\docs\README.md = ..\docs\README.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "base", "base", "{7E9A911A-D76C-48A1-82C8-40161B009D64}"
+	ProjectSection(SolutionItems) = preProject
+		..\README.md = ..\README.md
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

@@ -102,8 +102,8 @@ a.ToDataTable();
 ```C#
 "abc".IsEmpty();  //字符串是否为空
 "abc".IsNotEmpty();  //字符串是否不为空
-"abc".IsTrimEmpty();  //Trim 后的字符串是否为空
-"abc".IsNotTrimEmpty();  //Trim 后的字符串是否不为空
+"abc".IsEmpty(true);  //字符串是否为空（string.IsNullOrWhiteSpace）
+"abc".IsNotEmpty(true);  //字符串是否不为空（string.IsNullOrWhiteSpace）
 "https://jiuling.me".ToUri();  //将字符串转为 Uri 对象
 ```
 
@@ -224,7 +224,7 @@ public class JsonResult<T>
 通用的 `App` 自动更新所需的模型。  
 
 ```C#
-public class AppUpgradeInfo
+public class AppUpdateInfo
 {
     /// <summary>
     /// 程序名称
