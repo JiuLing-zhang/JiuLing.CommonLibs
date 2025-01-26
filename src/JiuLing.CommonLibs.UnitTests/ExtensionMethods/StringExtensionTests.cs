@@ -8,39 +8,31 @@ namespace JiuLing.CommonLibs.UnitTests.ExtensionMethods
     public class StringExtensionTests
     {
         [TestMethod()]
-        [DataRow("", true)]
-        [DataRow(" ", false)]
-        [DataRow("test", false)]
-        public void IsEmptyTest(string input, bool result)
+        [DataRow("", false, true)]
+        [DataRow(" ", false, false)]
+        [DataRow("test", false, false)]
+        [DataRow(" test   ", false, false)]
+        [DataRow("", true, true)]
+        [DataRow(" ", true, true)]
+        [DataRow("test", true, false)]
+        [DataRow(" test   ", true, false)]
+        public void IsEmptyTest(string input, bool checkWhiteSpace, bool result)
         {
-            Assert.AreEqual(input.IsEmpty(), result);
+            Assert.AreEqual(input.IsEmpty(checkWhiteSpace), result);
         }
 
         [TestMethod()]
-        [DataRow("test", true)]
-        [DataRow("", false)]
-        [DataRow(" ", true)]
-        public void IsNotEmptyTest(string input, bool result)
+        [DataRow("test", false, true)]
+        [DataRow(" test ", false, true)]
+        [DataRow("", false, false)]
+        [DataRow(" ", false, true)]
+        [DataRow("test", true, true)]
+        [DataRow(" test ", true, true)]
+        [DataRow("", true, false)]
+        [DataRow(" ", true, false)]
+        public void IsNotEmptyTest(string input, bool checkWhiteSpace, bool result)
         {
-            Assert.AreEqual(input.IsNotEmpty(), result);
-        }
-
-        [TestMethod()]
-        [DataRow("", true)]
-        [DataRow(" ", true)]
-        [DataRow("test", false)]
-        public void IsTrimEmptyTest(string input, bool result)
-        {
-            Assert.AreEqual(input.IsTrimEmpty(), result);
-        }
-
-        [TestMethod()]
-        [DataRow("test", true)]
-        [DataRow("", false)]
-        [DataRow(" ", false)]
-        public void IsNotTrimEmptyTest(string input, bool result)
-        {
-            Assert.AreEqual(input.IsNotTrimEmpty(), result);
+            Assert.AreEqual(input.IsNotEmpty(checkWhiteSpace), result);
         }
 
         [TestMethod()]
