@@ -5,8 +5,7 @@ namespace JiuLing.CommonLibs.Model
     /// <summary>
     /// 一个通用的App自动更新所需的模型
     /// </summary>
-    [Obsolete("请使用 AppUpdateInfo 类")]
-    public class AppUpgradeInfo
+    public class AppUpdateInfo
     {
         /// <summary>
         /// 程序名称
