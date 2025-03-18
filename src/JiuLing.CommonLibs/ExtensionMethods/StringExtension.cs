@@ -1,4 +1,7 @@
 ﻿using System;
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_0_OR_GREATER
+using System.Diagnostics.CodeAnalysis;
+#endif
 
 namespace JiuLing.CommonLibs.ExtensionMethods
 {
@@ -13,7 +16,11 @@ namespace JiuLing.CommonLibs.ExtensionMethods
         /// <param name="input">输入字符串</param>
         /// <param name="checkWhiteSpace">是否检查空白字符</param>
         /// <returns></returns>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_0_OR_GREATER
+        public static bool IsEmpty([NotNullWhen(false)] this string input, bool checkWhiteSpace = false)
+#else
         public static bool IsEmpty(this string input, bool checkWhiteSpace = false)
+#endif
         {
             if (checkWhiteSpace)
             {
@@ -28,26 +35,15 @@ namespace JiuLing.CommonLibs.ExtensionMethods
         /// <param name="input">输入字符串</param>
         /// <param name="checkWhiteSpace">是否检查空白字符</param>
         /// <returns></returns>
+
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_0_OR_GREATER
+        public static bool IsNotEmpty([NotNullWhen(true)] this string input, bool checkWhiteSpace = false)
+#else
         public static bool IsNotEmpty(this string input, bool checkWhiteSpace = false)
+#endif
         {
             return !input.IsEmpty(checkWhiteSpace);
         }
-
-        /// <summary>
-        /// Trim 后是否为空
-        /// </summary>
-        /// <param name="input"></param>
-        /// <returns></returns>
-        [Obsolete("请使用 IsEmpty 方法并传递 checkWhiteSpace 参数", true)]
-        public static bool IsTrimEmpty(this string input) => string.IsNullOrWhiteSpace(input.Trim());
-
-        /// <summary>
-        /// Trim 后是否不为空
-        /// </summary>
-        /// <param name="input"></param>
-        /// <returns></returns>
-        [Obsolete("请使用 IsNotEmpty 方法并传递 checkWhiteSpace 参数", true)]
-        public static bool IsNotTrimEmpty(this string input) => !string.IsNullOrEmpty(input.Trim());
 
         /// <summary>
         /// 转换为 Uri 对象
