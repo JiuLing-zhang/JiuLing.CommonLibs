@@ -52,5 +52,22 @@ namespace JiuLing.CommonLibs.UnitTests.ExtensionMethods
                 });
             }
         }
+
+        [DataRow("", 3, "...", "")]
+        [DataRow("a", 3, "...", "a")]
+        [DataRow("abc", 3, "...", "abc")]
+        [DataRow("abcd", 3, "...", "abc...")]
+        [DataRow("abcd", 3, "**", "abc**")]
+        public void TruncateTest(string input, int maxLength, string ellipsis, string result)
+        {
+            Assert.IsTrue(input.Truncate(maxLength) == result);
+        }
+
+        [DataRow("aBc", true, "ABC")]
+        [DataRow("aBc", false, "abc")]
+        public void ToUpperOrLowerTest(string input, bool isToUpper, string result)
+        {
+            Assert.IsTrue(input.ToUpperOrLower(isToUpper) == result);
+        }
     }
 }

@@ -51,5 +51,40 @@ namespace JiuLing.CommonLibs.ExtensionMethods
         /// <param name="input"></param>
         /// <returns></returns>
         public static Uri ToUri(this string input) => new Uri(input);
+
+        /// <summary>
+        /// 超过长度自动截取
+        /// </summary>
+        /// <param name="str"></param>
+        /// <param name="maxLength">最大长度</param>
+        /// <param name="ellipsis">截取后末尾拼接的字符串</param>
+        /// <returns></returns>
+        public static string Truncate(this string str, int maxLength = 20, string ellipsis = "...")
+        {
+            if (str.IsEmpty() || str.Length <= maxLength)
+            {
+                return str;
+            }
+
+            return str.Substring(0, maxLength) + ellipsis;
+        }
+
+        /// <summary>
+        /// 字符串转大写或小写
+        /// </summary>
+        /// <param name="value"></param>
+        /// <param name="isToUpper">大写/小写</param>
+        /// <returns></returns>
+        public static string ToUpperOrLower(this string value, bool isToUpper)
+        {
+            if (isToUpper)
+            {
+                return value.ToUpper();
+            }
+            else
+            {
+                return value.ToLower();
+            }
+        }
     }
 }

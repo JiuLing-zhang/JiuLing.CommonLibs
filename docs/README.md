@@ -105,6 +105,8 @@ a.ToDataTable();
 "abc".IsEmpty(true);  //字符串是否为空（string.IsNullOrWhiteSpace）
 "abc".IsNotEmpty(true);  //字符串是否不为空（string.IsNullOrWhiteSpace）
 "https://jiuling.me".ToUri();  //将字符串转为 Uri 对象
+"abcdefg".Truncate(3);  //字符串截断 返回"abc..."
+"aBc".ToUpperOrLower(true); // 字符串转为大写或小写
 ```
 
 ## `VersionExtension` 类  

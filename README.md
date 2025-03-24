@@ -25,6 +25,7 @@
 * `net6.0`
 * `net7.0`  
 * `net8.0`  
+* `net9.0`  
 
 ## 使用  
 查看[在线文档](https://commonlibs.jiuling.me)。  
