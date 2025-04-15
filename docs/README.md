@@ -1,4 +1,4 @@
-# 命名规则  
+﻿# 命名规则  
 * 类库中以 `Utils` 结尾的类，都提供了静态方法，可以直接调用。  
 * 类库中的命名空间和类名，尽量与 `.NET` 保持一致。  
 * 为了节约篇幅，命名空间（根命名空间除外）名称不包含 `JiuLing.CommonLibs.` 前缀。  
@@ -107,6 +107,7 @@ a.ToDataTable();
 "https://jiuling.me".ToUri();  //将字符串转为 Uri 对象
 "abcdefg".Truncate(3);  //字符串截断 返回"abc..."
 "aBc".ToUpperOrLower(true); // 字符串转为大写或小写
+"张三".MaskName(); // 姓名掩码 2位（含）之内：首位*；其余：首位**末位
 ```
 
 ## `VersionExtension` 类  

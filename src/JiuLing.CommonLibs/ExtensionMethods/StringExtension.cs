@@ -86,5 +86,25 @@ namespace JiuLing.CommonLibs.ExtensionMethods
                 return value.ToLower();
             }
         }
+
+        /// <summary>
+        /// 姓名掩码 2位（含）之内：首位*；其余：首位**末位
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        public static string MaskName(this string value)
+        {
+            if (value.IsEmpty())
+            {
+                return string.Empty;
+            }
+
+            if (value.Length <= 2)
+            {
+                return value.Substring(0, 1) + "*";
+            }
+
+            return value.Substring(0, 1) + "**" + value.Substring(value.Length - 1, 1);
+        }
     }
 }

@@ -69,5 +69,15 @@ namespace JiuLing.CommonLibs.UnitTests.ExtensionMethods
         {
             Assert.IsTrue(input.ToUpperOrLower(isToUpper) == result);
         }
+
+        [DataRow("", "")]
+        [DataRow("张", "张*")]
+        [DataRow("张三", "张*")]
+        [DataRow("张测试", "张**试")]
+        [DataRow("张三测试", "张**试")]
+        public void MaskNameTest(string input, string result)
+        {
+            Assert.IsTrue(input.MaskName() == result);
+        }
     }
 }
