@@ -7,11 +7,12 @@ namespace JiuLing.CommonLibs.Log
     /// <summary>
     /// 文本日志
     /// </summary>
-    public class TextLogger : ILogger
+    internal class TextLogger : ILogger
     {
         private string _logDirectory;
         private string _logNameDatetimeFormat;
         private string _logExpandedName;
+        private static readonly object LockObj = new object();
         /// <summary>
         /// 实例化
         /// </summary>
@@ -33,8 +34,10 @@ namespace JiuLing.CommonLibs.Log
             {
                 throw new ArgumentException(nameof(path));
             }
-
-            _logDirectory = path;
+            lock (LockObj)
+            {
+                _logDirectory = path;
+            }
             return this;
         }
         /// <summary>
@@ -49,7 +52,10 @@ namespace JiuLing.CommonLibs.Log
             {
                 throw new ArgumentException(nameof(datetimeFormat));
             }
-            _logNameDatetimeFormat = datetimeFormat;
+            lock (LockObj)
+            {
+                _logNameDatetimeFormat = datetimeFormat;
+            }
             return this;
         }
         /// <summary>
@@ -64,7 +70,10 @@ namespace JiuLing.CommonLibs.Log
             {
                 throw new ArgumentException(nameof(expandedName));
             }
-            _logExpandedName = expandedName;
+            lock (LockObj)
+            {
+                _logExpandedName = expandedName;
+            }
             return this;
         }
         /// <summary>
@@ -73,19 +82,22 @@ namespace JiuLing.CommonLibs.Log
         /// <param name="message"></param>
         public void Write(string message)
         {
-            if (!Directory.Exists(_logDirectory))
+            lock (LockObj)
             {
-                Directory.CreateDirectory(_logDirectory);
-            }
+                if (!Directory.Exists(_logDirectory))
+                {
+                    Directory.CreateDirectory(_logDirectory);
+                }
 
-            DateTime now = DateTime.Now;
-            string fileName = $"{now.ToString(_logNameDatetimeFormat)}{_logExpandedName}";
-            string path = Path.Combine(_logDirectory, fileName);
+                DateTime now = DateTime.Now;
+                string fileName = $"{now.ToString(_logNameDatetimeFormat)}{_logExpandedName}";
+                string path = Path.Combine(_logDirectory, fileName);
 
-            using (StreamWriter sw = new StreamWriter(path, true, System.Text.Encoding.UTF8))
-            {
-                sw.Write($"{now:yyyy-MM-dd HH:mm:ss.fff} {message}{Environment.NewLine}");
-                sw.Flush();
+                using (StreamWriter sw = new StreamWriter(path, true, System.Text.Encoding.UTF8))
+                {
+                    sw.Write($"{now:yyyy-MM-dd HH:mm:ss.fff} {message}{Environment.NewLine}");
+                    sw.Flush();
+                }
             }
         }
     }
