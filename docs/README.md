@@ -128,10 +128,19 @@ a.ToDataTable();
 
 ```C#
 ILogger logger = LogManager.GetLogger();
-// logger.SetLogDirectory("C:\\")      //设置日志文件的路径，默认为 “程序集路径\log”
-//     .SetFileNameFormat("yyyyMMdd")  //设置日志文件名的格式，默认为 “yyyy-MM-dd”
-//     .SetFileExpandedName(".txt");   //设置日志文件的扩展名，默认为 “.log”
-logger.Write("test");
+// logger.SetLogDirectory("C:\\")       // 设置日志文件的路径，默认为 “程序集路径\log”
+//     .SetFileNameFormat("yyyyMMdd")   // 设置日志文件名的格式，默认为 “yyyy-MM-dd”
+//     .SetFileExpandedName(".txt");    // 设置日志文件的扩展名，默认为 “.log”
+//     .SetSeparateByLogLevel(false);   // 设置是否按日志等级分文件
+logger.Info("test");
+logger.Error("error");
+logger.Error("error", ex);
+
+//【可选】日志写入失败时的异常回调
+LogManager.RegisterLogExceptionCallback(ex =>
+{
+    Console.WriteLine("日志写入失败：" + ex.Message);
+});
 ```
 
 # `Middleware` 命名空间  
