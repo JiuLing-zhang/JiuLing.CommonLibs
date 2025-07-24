@@ -1,4 +1,6 @@
-﻿namespace JiuLing.CommonLibs.Log
+﻿using System;
+
+namespace JiuLing.CommonLibs.Log
 {
     /// <summary>
     /// 日志管理
@@ -24,6 +26,18 @@
                     _logger = new TextLogger();
                 }
                 return _logger;
+            }
+        }
+
+        /// <summary>
+        /// 注册日志写入异常回调
+        /// </summary>
+        /// <param name="callback">异常处理回调</param>
+        public static void RegisterLogExceptionCallback(Action<Exception> callback)
+        {
+            if (_logger is TextLogger)
+            {
+                TextLogger.OnLogWriteException += callback;
             }
         }
     }
