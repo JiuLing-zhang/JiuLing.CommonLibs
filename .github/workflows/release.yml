@@ -31,7 +31,7 @@ jobs:
         run: dotnet build .\src\JiuLing.CommonLibs.sln --no-restore -c release
 
       - name: Test
-        run: dotnet test .\src\JiuLing.CommonLibs.sln
+        run: dotnet test .\src\JiuLing.CommonLibs.sln  --no-build -c Release
 
       - name: Get version
         uses: olegtarasov/get-tag@v2.1
@@ -40,7 +40,7 @@ jobs:
       - name: Create zip
         shell: pwsh
         # 配置【编译后的文件地址】
-        run: Compress-Archive -Path .\src\JiuLing.CommonLibs\bin\Release\* -DestinationPath .\src\JiuLing.CommonLibs\bin\Release\JiuLing.CommonLibs_${{ steps.tagName.outputs.tag }}.zip
+        run: Compress-Archive -Path .\src\JiuLing.CommonLibs\bin\Release\*,README.md,THIRD-PARTY-NOTICES.txt -DestinationPath .\src\JiuLing.CommonLibs\bin\Release\JiuLing.CommonLibs_${{ steps.tagName.outputs.tag }}.zip
 
       - name: Release
         uses: softprops/action-gh-release@v1
