@@ -40,7 +40,7 @@ jobs:
       - name: Create zip
         shell: pwsh
         # 配置【编译后的文件地址】
-        run: Compress-Archive -Path .\src\JiuLing.CommonLibs\bin\Release\*,README.md,THIRD-PARTY-NOTICES.txt -DestinationPath .\src\JiuLing.CommonLibs\bin\Release\JiuLing.CommonLibs_${{ steps.tagName.outputs.tag }}.zip
+        run: Compress-Archive -Path .\src\JiuLing.CommonLibs\bin\Release\*,.\README.md,.\THIRD-PARTY-NOTICES.txt -DestinationPath .\src\JiuLing.CommonLibs\bin\Release\JiuLing.CommonLibs_${{ steps.tagName.outputs.tag }}.zip
 
       - name: Release
         uses: softprops/action-gh-release@v1
