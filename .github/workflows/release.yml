@@ -11,10 +11,10 @@ jobs:
     
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v6
         
       - name: Setup .NET
-        uses: actions/setup-dotnet@v1
+        uses: actions/setup-dotnet@v5
         with:
           dotnet-version: |             
             3.1.x
@@ -23,6 +23,7 @@ jobs:
             7.0.x
             8.0.x
             9.0.x
+            10.0.x
 
       - name: Restore dependencies
         run: dotnet restore .\src\JiuLing.CommonLibs.sln
@@ -34,7 +35,7 @@ jobs:
         run: dotnet test .\src\JiuLing.CommonLibs.sln  --no-build -c Release
 
       - name: Get version
-        uses: olegtarasov/get-tag@v2.1
+        uses: olegtarasov/get-tag@v2.1.4
         id: tagName
 
       - name: Create zip
@@ -43,7 +44,7 @@ jobs:
         run: Compress-Archive -Path .\src\JiuLing.CommonLibs\bin\Release\*,.\README.md,.\THIRD-PARTY-NOTICES.txt -DestinationPath .\src\JiuLing.CommonLibs\bin\Release\JiuLing.CommonLibs_${{ steps.tagName.outputs.tag }}.zip
 
       - name: Release
-        uses: softprops/action-gh-release@v1
+        uses: softprops/action-gh-release@v2
         if: startsWith(github.ref, 'refs/tags/')
         with:
           # 配置【README地址】
