@@ -413,7 +413,7 @@ var sign = builder
 Console.WriteLine(sign);
 ```
 
-## `MD5Utils` 类  
+## `Base64Utils` 类  
 Base64 的工具类。  
 
 ```C#
@@ -444,6 +444,18 @@ string GetFileValueToUpper(Stream stream);
 //计算文件的 MD5 值（大写）
 string GetFileValueToUpper(string fileName);
 string GetFileValueToUpper(Stream stream);
+```
+
+## `PasswordUtils` 类  
+密码帮助类。  
+> 仅支持 .NET 6 及以后版本
+
+```C#
+
+// 对密码进行哈希
+string HashPassword(string password);
+//验证密码是否正确
+bool VerifyPassword(string password, string storedHash)
 ```
 
 ## `SHA1Utils` 类  
