@@ -52,6 +52,24 @@ public enum VersionFormatEnum
 # `ExtensionMethods` 命名空间  
 该命名空间下是一些通用的扩展方法。  
 
+## `DateTimeExtension` 类  
+时间扩展方法。  
+
+```C#
+/// <summary>
+/// 根据系统语言返回统一友好的日期时间字符串
+/// 中文统一格式: yyyy-MM-dd HH:mm:ss
+/// 英文统一格式: MM/dd/yyyy hh:mm tt
+/// 其他语言使用默认格式 G
+/// </summary>
+public static string ToLocalizedFriendlyString(this DateTime dateTime)
+
+/// <summary>
+/// 根据系统语言返回统一友好的日期时间字符串
+/// </summary>
+public static string ToLocalizedFriendlyString(this DateTime dateTime, string format)
+```
+
 ## `EnumExtension` 类  
 枚举类型的扩展方法。  
 
