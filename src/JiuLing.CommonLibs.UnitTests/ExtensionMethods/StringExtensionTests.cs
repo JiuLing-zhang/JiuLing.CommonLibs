@@ -53,6 +53,7 @@ namespace JiuLing.CommonLibs.UnitTests.ExtensionMethods
             }
         }
 
+        [TestMethod()]
         [DataRow("", 3, "...", "")]
         [DataRow("a", 3, "...", "a")]
         [DataRow("abc", 3, "...", "abc")]
@@ -63,6 +64,7 @@ namespace JiuLing.CommonLibs.UnitTests.ExtensionMethods
             Assert.IsTrue(input.Truncate(maxLength) == result);
         }
 
+        [TestMethod()]
         [DataRow("aBc", true, "ABC")]
         [DataRow("aBc", false, "abc")]
         public void ToUpperOrLowerTest(string input, bool isToUpper, string result)
@@ -70,6 +72,7 @@ namespace JiuLing.CommonLibs.UnitTests.ExtensionMethods
             Assert.IsTrue(input.ToUpperOrLower(isToUpper) == result);
         }
 
+        [TestMethod()]
         [DataRow("", "")]
         [DataRow("张", "张*")]
         [DataRow("张三", "张*")]
@@ -78,6 +81,20 @@ namespace JiuLing.CommonLibs.UnitTests.ExtensionMethods
         public void MaskNameTest(string input, string result)
         {
             Assert.IsTrue(input.MaskName() == result);
+        }
+
+        [TestMethod()]
+        [DataRow("", "")]
+        [DataRow("a", "a***")]
+        [DataRow("ab", "a***")]
+        [DataRow("abc", "a***c")]
+        [DataRow("a@example.com", "a***@example.com")]
+        [DataRow("ab@example.com", "a***@example.com")]
+        [DataRow("abc@example.com", "a***c@example.com")]
+        [DataRow("abcd@example.com", "a***d@example.com")]
+        public void MaskEmailTest(string input, string result)
+        {
+            Assert.IsTrue(input.MaskEmail() == result);
         }
     }
 }

@@ -96,7 +96,7 @@ namespace JiuLing.CommonLibs.ExtensionMethods
         {
             if (value.IsEmpty())
             {
-                return string.Empty;
+                return value;
             }
 
             if (value.Length <= 2)
@@ -105,6 +105,50 @@ namespace JiuLing.CommonLibs.ExtensionMethods
             }
 
             return value.Substring(0, 1) + "**" + value.Substring(value.Length - 1, 1);
+        }
+
+        /// <summary>
+        /// 邮箱打码：保留首字符与末字符（本地名部分），中间以 *** 替代，域名完整保留。
+        /// 例如 john.doe@example.com -> j***e@example.com
+        /// </summary>
+        public static string MaskEmail(this string email)
+        {
+            if (email.IsEmpty())
+            {
+                return email;
+            }
+
+            var atIndex = email.IndexOf('@');
+
+            // 不含 @：把整个字符串当作本地部分脱敏
+            if (atIndex < 0)
+            {
+                return MaskLocalEmailPart(email);
+            }
+
+            // @ 在开头：域名部分保留，本地部分为空
+            if (atIndex == 0)
+            {
+                return "***" + email.Substring(0);
+            }
+
+            var localPart = email.Substring(0, atIndex);
+            var domain = email.Substring(atIndex);
+
+            return MaskLocalEmailPart(localPart) + domain;
+        }
+
+        private static string MaskLocalEmailPart(string localPart)
+        {
+            if (localPart.Length == 0)
+            {
+                return "***";
+            }
+            if (localPart.Length <= 2)
+            {
+                return localPart[0] + "***";
+            }
+            return localPart[0] + "***" + localPart[localPart.Length - 1];
         }
     }
 }

@@ -126,6 +126,7 @@ a.ToDataTable();
 "abcdefg".Truncate(3);  //字符串截断 返回"abc..."
 "aBc".ToUpperOrLower(true); // 字符串转为大写或小写
 "张三".MaskName(); // 姓名掩码 2位（含）之内：首位*；其余：首位**末位
+"test@example.com".MaskEmail(); // 邮箱掩码 2位（含）之内：首位***；其余：首位***末位，邮箱域名不参与掩码
 ```
 
 ## `VersionExtension` 类  
